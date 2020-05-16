@@ -1,24 +1,29 @@
-# README
+# PELE
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Introduction
 
-Things you may want to cover:
+...
 
-* Ruby version
+## Prerequisites
 
-* System dependencies
+- Install [all requirements](https://gorails.com/setup/osx/10.15-catalina) on your machine
+- PostgreSQL (instruction in the link above)
+- [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) (if you need to deploy the application, `$ brew tap heroku/brew && brew install heroku`)
 
-* Configuration
+## Installation
 
-* Database creation
+```
+$ git clone https://github.com/bazzel/pele
+$ cd pele
+$ rbenv install `cat .ruby-version` # assuming you use rbenv.
+$ bundle install
+$ yarn install
+$ cp .env.template .env
+$ bin/rails db:setup
+```
 
-* Database initialization
+## Running / Development
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- `$ bin/rails s`
+- `$ bin/webpack-dev-server`
+- Visit your app at [http://localhost:3000](http://localhost:3000).
