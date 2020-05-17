@@ -1,4 +1,8 @@
 # frozen_string_literal: true
 
 #:nodoc:
-module ApplicationHelper; end
+module ApplicationHelper
+  def modal_id
+    'modal'
+  end
+end

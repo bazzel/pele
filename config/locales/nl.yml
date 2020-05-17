@@ -1,0 +1,27 @@
+nl:
+  helpers:
+    options: "Opties"
+    submit:
+      edit: &edit "Bewerken"
+      show: "Openen"
+      cancel: "Annuleren"
+      undo: "Ongedaan maken"
+      user:
+        create: "Aanmelden"
+      session:
+        destroy: "Afmelden"
+      song:
+        create: &save "Opslaan"
+        update: *save
+
+  activerecord:
+    models:
+      song: "Lied"
+    attributes:
+      song:
+        title: "Titel"
+
+  songs:
+    new:
+      title: "Een nieuw %{subject} toevoegen"
+      cancel: &cancel_event_creation "Maken van %{subject} annuleren"

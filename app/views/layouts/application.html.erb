@@ -13,5 +13,7 @@
   <div class="container">
     <%= yield %>
   </div>
+  <div id="<%= modal_id %>"></div>
   </body>
+  <%= yield(:floating_action_button) %>
 </html>

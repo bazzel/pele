@@ -15,11 +15,10 @@ require("channels");
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-import "controllers";
-
 import $ from "jquery";
 import "bootstrap/dist/js/bootstrap";
 import "daemonite-material/js/material";
+import "controllers";
 
 $(document).on("turbolinks:load", function () {
   // Bootstrap
