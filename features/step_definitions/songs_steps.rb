@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Given('I have {int} songs') { |songs_count| create_list(:song, songs_count) }
 
 When('I navigate to the songs page') { visit '/songs' }
