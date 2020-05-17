@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+#:nodoc:
 module TextFieldBox
   def input(wrapper_options)
     ensure_placeholder
