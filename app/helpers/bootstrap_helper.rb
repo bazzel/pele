@@ -3,7 +3,7 @@
 # Collection of bootstrap related helpers
 module BootstrapHelper
   def bs_snackbar
-    render(Material::Snackbar, flash: flash)
+    render(Material::Snackbar.new(flash: flash))
   end
 
   # @param icon [String] For all available icons, please refer to Material icons library (https://material.io/resources/icons/)
@@ -14,10 +14,7 @@ module BootstrapHelper
 
   def tooltipify(title, data_attributes = {})
     data = { toggle: 'tooltip' }.merge(data_attributes)
-    {
-      data: data,
-      title: title
-    }
+    { data: data, title: title }
   end
 
   # Minimal set of classnames needed to create
@@ -47,19 +44,11 @@ module BootstrapHelper
       [this_val, other_val].join(' ').strip
     end
 
-    tag.button(options) do
-      tag.span('×', aria: { hidden: true })
-    end
+    tag.button(options) { tag.span('×', aria: { hidden: true }) }
   end
 
   def close_icon_default_options
-    {
-      class: 'close',
-      type: :button,
-      aria: {
-        label: 'Close'
-      }
-    }
+    { class: 'close', type: :button, aria: { label: 'Close' } }
   end
 
   private

@@ -27,6 +27,7 @@ nl:
       cancel: &cancel_song_creation "Maken van %{subject} annuleren"
     create:
       cancel: *cancel_song_creation
+      notice: "Lied '%{title}' is toegevoegd."
 
   simple_form:
     "yes": "Ja"
