@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 #:nodoc:
-class SongDecorator < Draper::Decorator
+class SongDecorator < ApplicationDecorator
   delegate_all
 
   # Define presentation-specific methods here. Helpers are accessed through

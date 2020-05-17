@@ -1,0 +1,45 @@
+.expansion-panel {
+  cursor: pointer;
+
+  &.show {
+    @include media-breakpoint-up(sm) {
+      &.stretchable {
+        margin: {
+          left: -1 * $expansion-panel-padding-x;
+          right: -1 * $expansion-panel-padding-x;
+        }
+      }
+    }
+
+    .actions {
+      visibility: visible;
+    }
+
+    .collapsed-show {
+      display: none;
+    }
+  }
+
+  &:not(.show) {
+    .collapsed-hide {
+      display: none;
+    }
+  }
+
+  .actions {
+    bottom: 0;
+    right: 0;
+    top: 0;
+    visibility: hidden;
+  }
+
+  &:hover .actions {
+    visibility: visible;
+  }
+
+  .expansion-panel-toggler:hover {
+    .actions {
+      background-color: $expansion-panel-bg-active;
+    }
+  }
+}

@@ -1,8 +1,3 @@
 - content_for(:floating_action_button) { SongDecorator.floating_action_button }
 
-h1 Songs#index
-p Find me in app/views/songs/index.html.slim
-
-ul
-    - @songs.each do |song|
-        li= song.title
+#songs= render partial: 'songs', object: @songs, layout: 'songs_layout', locals: { parent: 'songs' }
