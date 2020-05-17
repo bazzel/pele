@@ -1,0 +1,14 @@
+@import "~daemonite-material/assets/scss/material";
+
+.textfield-box {
+  .form-control {
+    border-bottom: {
+      left-radius: 0;
+      right-radius: 0;
+    }
+  }
+  .invalid-feedback,
+  .form-text {
+    padding-left: $textfield-box-padding-x;
+  }
+}

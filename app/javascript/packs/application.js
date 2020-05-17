@@ -19,8 +19,10 @@ import "controllers";
 
 import $ from "jquery";
 import "bootstrap/dist/js/bootstrap";
+import "daemonite-material/js/material";
 
 $(document).on("turbolinks:load", function () {
+  // Bootstrap
   $("body").tooltip({
     selector: '[data-toggle="tooltip"]',
     container: "body",
@@ -32,4 +34,9 @@ $(document).on("turbolinks:load", function () {
     html: true,
     trigger: "hover",
   });
+
+  // Daemonite
+  $(
+    ".floating-label .custom-select, .floating-label .form-control"
+  ).floatinglabel();
 });
