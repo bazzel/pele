@@ -2,6 +2,7 @@
 
 #:nodoc:
 class SongsController < ApplicationController
+  before_action :set_song, only: %i[edit update destroy]
   def index
     @songs = Song.all.decorate
   end
@@ -19,6 +20,20 @@ class SongsController < ApplicationController
       @song = @song.decorate
       render :new
     end
+  end
+
+  def update
+    if @song.update(song_params)
+      redirect_to songs_url, notice: t('.notice', title: @song.title)
+    else
+      render :edit
+    end
+  end
+
+  private
+
+  def set_song
+    @song = Song.find(params[:id]).decorate
   end
 
   def song_params

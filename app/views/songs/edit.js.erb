@@ -1,0 +1,4 @@
+var el = document.getElementById('<%= modal_id %>');
+el.outerHTML = '<%= j render(partial: 'form', object: @song, as: :song) %>';
+
+// Stimulus controller handles the rest.

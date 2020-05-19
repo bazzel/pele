@@ -25,9 +25,15 @@ nl:
     new:
       title: "Een nieuw %{subject} toevoegen"
       cancel: &cancel_song_creation "Maken van %{subject} annuleren"
+    edit:
+      title: "Lied bewerken"
+      cancel: &cancel_song_edit "Liedwijzigingen annuleren"
     create:
       cancel: *cancel_song_creation
       notice: "Lied '%{title}' is toegevoegd."
+    update:
+      cancel: *cancel_song_edit
+      notice: "Lied '%{title}' is bijgewerkt."
 
   simple_form:
     "yes": "Ja"
