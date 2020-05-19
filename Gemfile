@@ -41,6 +41,8 @@ group :development, :test do
   gem 'rubocop-rails'
   gem 'rubocop-rspec'
   gem 'rubocop-performance'
+  gem 'ruby-debug-ide' # An interface which glues ruby-debug to IDEs like Eclipse (RDT), NetBeans and RubyMine
+  gem 'debase' # implementation of the standard Ruby debugger debug.rb for Ruby 2.0
 end
 
 group :development do
@@ -51,6 +53,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'html2slim'
+  gem 'solargraph' # IDE tools for code completion, inline documentation, and static analysis
 end
 
 group :test do
