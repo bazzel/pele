@@ -1,5 +1,7 @@
 # PELE
 
+[![Build Status](https://travis-ci.org/bazzel/pele.svg?branch=develop)](https://travis-ci.org/bazzel/pele)
+
 ## Introduction
 
 ...
