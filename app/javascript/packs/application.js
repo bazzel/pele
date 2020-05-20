@@ -39,3 +39,7 @@ $(document).on("turbolinks:load", function () {
     ".floating-label .custom-select, .floating-label .form-control"
   ).floatinglabel();
 });
+
+$(document).on('ajax:before', function() {
+  $('.tooltip').tooltip('dispose');
+});
