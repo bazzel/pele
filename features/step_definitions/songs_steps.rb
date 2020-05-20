@@ -8,6 +8,10 @@ end
 
 When('I click( the) {string}( button)') { |label| click_on label }
 
+When('I undo deleting the song') do
+  within('.snackbar.show') { click_on('Ongedaan maken') }
+end
+
 Given('I am adding a new song') do
   step 'I navigate to the songs page'
   step 'I click the "add" button'

@@ -2,14 +2,17 @@
 
 #:nodoc:
 class SongsController < ApplicationController
-  before_action :set_song, only: %i[update]
+  before_action :set_song, only: %i[edit update destroy restore]
+
   def index
-    @songs = Song.all.decorate
+    @songs = Song.kept.order(:title).decorate
   end
 
   def new
     @song = Song.new.decorate
   end
+
+  def edit; end
 
   def create
     @song = Song.new(song_params)
@@ -28,6 +31,18 @@ class SongsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @song.discard
+
+    flash.now.notice = t('.notice', title: @song.title)
+  end
+
+  def restore
+    @song.undiscard
+
+    flash.now.notice = t('.notice', title: @song.title)
   end
 
   private

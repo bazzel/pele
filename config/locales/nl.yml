@@ -28,12 +28,17 @@ nl:
     edit:
       title: "Lied bewerken"
       cancel: &cancel_song_edit "Liedwijzigingen annuleren"
+    destroy:
+      title: "Lied verwijderen"
+      notice: "Lied '%{title}' is verwijderd."
     create:
       cancel: *cancel_song_creation
       notice: "Lied '%{title}' is toegevoegd."
     update:
       cancel: *cancel_song_edit
       notice: "Lied '%{title}' is bijgewerkt."
+    restore:
+      notice: "Lied '%{title}' is hersteld."
 
   simple_form:
     "yes": "Ja"

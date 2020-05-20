@@ -1,0 +1,12 @@
+var el              = document.getElementById('<%= @song.dom_id %>');
+var isExpanded      = el.classList.contains('show');
+var restoreEl       = document.createElement('div');
+var collapsedHTML   = '<%= j render(partial: 'songs/song', object: @song, locals: { parent: 'songs' }) %>';
+var expandedHTML    = '<%= j render(partial: 'songs/song', object: @song, locals: { show: true, parent: 'songs' }) %>';
+
+restoreEl.innerHTML = isExpanded ? expandedHTML : collapsedHTML;
+el.replaceWith(restoreEl.firstChild);
+
+var snackbar       = document.createElement('div');
+snackbar.innerHTML = '<%= j render(Material::Snackbar.new(flash: flash)) %>';
+document.body.appendChild(snackbar.firstChild);
