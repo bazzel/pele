@@ -2,7 +2,7 @@
 
 #:nodoc:
 class SongsController < ApplicationController
-  before_action :set_song, only: %i[edit update destroy]
+  before_action :set_song, only: %i[update]
   def index
     @songs = Song.all.decorate
   end
