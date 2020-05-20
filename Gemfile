@@ -27,43 +27,43 @@ gem 'jbuilder', '~> 2.7'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
-gem 'slim-rails', '~> 3.2'
 gem 'draper'
 gem 'simple_form'
+gem 'slim-rails', '~> 3.2'
 gem 'view_component'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'rspec-rails', '~> 4.0.0'
+  gem 'debase' # implementation of the standard Ruby debugger debug.rb for Ruby 2.0
   gem 'factory_bot_rails'
   gem 'faker'
+  gem 'rspec-rails', '~> 4.0.0'
+  gem 'rubocop-performance'
   gem 'rubocop-rails'
   gem 'rubocop-rspec'
-  gem 'rubocop-performance'
   gem 'ruby-debug-ide' # An interface which glues ruby-debug to IDEs like Eclipse (RDT), NetBeans and RubyMine
-  gem 'debase' # implementation of the standard Ruby debugger debug.rb for Ruby 2.0
 end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
+  gem 'html2slim'
   gem 'listen', '~> 3.2'
+  gem 'solargraph' # IDE tools for code completion, inline documentation, and static analysis
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'html2slim'
-  gem 'solargraph' # IDE tools for code completion, inline documentation, and static analysis
+  gem 'web-console', '>= 3.3.0'
 end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
+  gem 'cucumber-rails', require: false
+  gem 'database_cleaner'
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
-  gem 'cucumber-rails', require: false
-  gem 'database_cleaner'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
