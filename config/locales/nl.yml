@@ -20,6 +20,7 @@ nl:
     attributes:
       song:
         title: "Titel"
+        scores: "Bladmuziek"
 
   songs:
     new:
@@ -39,6 +40,8 @@ nl:
       notice: "Lied '%{title}' is bijgewerkt."
     restore:
       notice: "Lied '%{title}' is hersteld."
+    form:
+      add_score: "Bladmuziek toevoegen"
 
   simple_form:
     "yes": "Ja"

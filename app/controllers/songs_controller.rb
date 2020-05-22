@@ -10,6 +10,7 @@ class SongsController < ApplicationController
 
   def new
     @song = Song.new.decorate
+    @song.scores.build
   end
 
   def edit; end
@@ -52,6 +53,9 @@ class SongsController < ApplicationController
   end
 
   def song_params
-    params.require(:song).permit(:title)
+    params.require(:song).permit(
+      :title,
+      scores_attributes: %i[id file _destroy]
+    )
   end
 end

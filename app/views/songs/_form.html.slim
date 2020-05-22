@@ -8,6 +8,26 @@
         .modal-body
           = f.input :title
 
+          fieldset(data-controller='nested-form')
+            template(data-target='nested-form.template')
+              = f.fields_for :scores, Score.new, child_index: 'NEW_RECORD' do |score|
+                = render 'songs/score_fields', f: score
+
+            .form-group.row
+              legend.col-form-label.col-2= Song.human_attribute_name('scores')
+              .col.nested-form
+                - song.errors[:scores].each do |msg|
+                  p.text-danger.mt-2= msg
+
+                = f.fields_for :scores, song.scores do |score|
+                  = render 'score_fields', f: score
+
+                div(data-target='nested-form.links')
+                  = link_to t('.add_score'), "#", class: 'btn btn-outline', role: :button, data: { action: 'nested-form#add_association' }
+
+
+
+
         .modal-footer
           = link_to t('helpers.submit.cancel'), '#', class: 'btn', role: :button, data: { dismiss: 'modal' }
           = f.button :submit, class: 'btn btn-outline-primary', data: { target: "##{modal_id}", toggle: 'modal' }

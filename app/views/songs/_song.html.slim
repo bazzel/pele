@@ -1,11 +1,16 @@
 .expansion-panel.list-group-item.stretchable(id=song.dom_id class=(local_assigns[:show] && 'show') data={ controller: 'expansion-panel', action: 'click->expansion-panel#toggle', target: "##{song.dom_id(:collapse)}" })
   .expansion-panel-toggler.collapsed.position-relative
     .media-body
-      .row.collapsed-show
+      .row.collapsed-show.align-items-center
         - # Keep 1 column for action buttons
-        .col-sm-3.text-truncate= song.title
-        .col-sm-2 ...
-        .col-sm-6 ...
+        .col-3.text-truncate= song.title
+        .col-8
+          - song.scores.each do |score|
+            .badge.badge-pill.badge-light.border.py-1.mr-2
+              = link_to(score.file, class: 'text-dark small', target: '_blank', data: { toggle: 'no-collapse' }) do
+                small= material_icon('attach_file')
+                = score.file.filename
+
       .row.collapsed-hide
         .col-11
           h3.mb-0= song.title
@@ -14,4 +19,5 @@
       = song.link_to_edit
   .collapse(id=song.dom_id(:collapse) class=('show' if local_assigns[:show]) data={ parent: "##{parent}" })
     .expansion-panel-body
-      | ...
+      - song.scores.each do |score|
+        .badge.badge-pill.badge-light= link_to(score.file.filename, score.file, target: '_blank')
