@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+#:nodoc:
 class Score < ApplicationRecord
   belongs_to :song
 
