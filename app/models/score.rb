@@ -1,5 +1,5 @@
 class Score < ApplicationRecord
   belongs_to :song
 
-  has_one_attached :file
+  mount_uploader :attachment, AttachmentUploader
 end

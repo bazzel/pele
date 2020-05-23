@@ -5,7 +5,7 @@ class SongsController < ApplicationController
   before_action :set_song, only: %i[edit update destroy restore]
 
   def index
-    @songs = Song.kept.order(:title).decorate
+    @songs = Song.kept.includes(:scores).order(:title).decorate
   end
 
   def new
@@ -13,7 +13,9 @@ class SongsController < ApplicationController
     @song.scores.build
   end
 
-  def edit; end
+  def edit
+    @song.scores.build if @song.scores.none?
+  end
 
   def create
     @song = Song.new(song_params)
@@ -55,7 +57,7 @@ class SongsController < ApplicationController
   def song_params
     params.require(:song).permit(
       :title,
-      scores_attributes: %i[id file _destroy]
+      scores_attributes: %i[id attachment attachment_cache _destroy]
     )
   end
 end

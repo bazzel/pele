@@ -10,7 +10,8 @@ class Song < ApplicationRecord
 
   accepts_nested_attributes_for :scores,
                                 reject_if: lambda { |attributes|
-                                  attributes['file'].nil?
+                                  attributes['attachment'].blank? &&
+                                    attributes['attachment_cache'].blank?
                                 },
                                 allow_destroy: true
 end
