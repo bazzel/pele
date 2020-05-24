@@ -50,4 +50,8 @@ class UserDecorator < ApplicationDecorator
 
     h.link_to body, url, html_options
   end
+
+  def mail_to
+    name ? "#{name} <#{email}>" : email
+  end
 end

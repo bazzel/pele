@@ -1,5 +1,8 @@
 @javascript
 Feature: Delete a song
+        Background:
+            Given I signed in
+
         Scenario: Delete a song
             Given I have created the following songs:
                   | title         |

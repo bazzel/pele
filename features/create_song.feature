@@ -1,6 +1,8 @@
 @javascript
 Feature: Create song
-
+        Background:
+            Given I signed in
+        
         Scenario: Add first song
             Given I navigate to the songs page
              When I click the "add" button

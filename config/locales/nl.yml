@@ -23,13 +23,34 @@ nl:
       user:
         one: "Gebruiker"
         other: "Gebruikers"
-
     attributes:
       song:
         title: "Titel"
         scores: "Bladmuziek"
       user:
         name: "Naam"
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              not_an_email_address: "is geen geldig e-mailadres"
+
+  sessions:
+    new:
+      title: "Aanmelden bij %{app_name}"
+      body: "Alleen als je bent aangemeld, kun je deze applicatie gebruiken. Nadat je je e-mailadres hebt ingevuld, ontvang je een mail om verder te gaan."
+      signin: "Aanmelden"
+    create:
+      title: "Controleer je e-mail!"
+      body: "We hebben een speciale link gemaild naar %{email}. Klik op de link in de e-mail om van start te kunnen gaan."
+    destroy:
+      notice: "Je bent nu afgemeld."
+  sessions_mailer:
+    magic_link:
+      subject: "%{user}, welkom bij %{app_name}!"
+      body: "Iemand (hopelijk was jij dat) wil toegang hebben tot %{app_name}. Klik op de link om van start te kunnen gaan."
+      signature: "Het %{app_name} Team"
 
   songs:
     new:

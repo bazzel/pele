@@ -125,6 +125,10 @@ GEM
       activesupport (>= 5.0)
       request_store (>= 1.0)
     e2mmap (0.1.0)
+    email_spec (2.2.0)
+      htmlentities (~> 4.3.3)
+      launchy (~> 2.1)
+      mail (~> 2.7)
     erubi (1.9.0)
     excon (0.73.0)
     factory_bot (5.2.0)
@@ -158,6 +162,7 @@ GEM
     hpricot (0.8.6)
     html2slim (0.2.0)
       hpricot
+    htmlentities (4.3.4)
     i18n (1.8.2)
       concurrent-ruby (~> 1.0)
     image_processing (1.11.0)
@@ -167,6 +172,10 @@ GEM
     jaro_winkler (1.5.4)
     jbuilder (2.10.0)
       activesupport (>= 5.0.0)
+    launchy (2.5.0)
+      addressable (~> 2.7)
+    letter_opener (1.7.0)
+      launchy (~> 2.2)
     listen (3.2.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -374,11 +383,13 @@ DEPENDENCIES
   debase
   discard (~> 1.2)
   draper
+  email_spec
   factory_bot_rails
   faker
   fog-aws
   html2slim
   jbuilder (~> 2.7)
+  letter_opener
   listen (~> 3.2)
   mini_magick
   pg (>= 0.18, < 2.0)

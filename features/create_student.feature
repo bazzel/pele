@@ -1,5 +1,7 @@
 @javascript
 Feature: Create student
+        Background:
+            Given I signed in
 
         Scenario: Add first user
              When I choose "Gebruikers" from the navigation drawer

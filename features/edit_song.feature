@@ -1,5 +1,7 @@
 @javascript
 Feature: Edit a song
+        Background:
+            Given I signed in
 
         Scenario: Opening a modal for editing a song
             Given I have created the following songs:
