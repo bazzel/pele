@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Given('I am adding a new user') do
   step 'I navigate to the users page'
   step 'I click the "add" button'
