@@ -16,8 +16,15 @@ class UserDecorator < ApplicationDecorator
     h.fab_wrapper { h.fab_button(h.new_user_path, remote: true) }
   end
 
+  def to_label
+    return name.truncate(25) if name.present?
+
+    email
+  end
+  alias to_s to_label
+
   def form_title
-    name_was ||
+    name_was || email_was ||
       I18n.t('users.new.title', subject: self.class.model_name.human.downcase)
   end
 

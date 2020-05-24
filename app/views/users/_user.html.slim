@@ -3,12 +3,12 @@
     .media-body
       .row.collapsed-show.align-items-center
         - # Keep 1 column for action buttons
-        .col-3.text-truncate= user.name
+        .col-3.text-truncate= user.to_label
         .col-8
 
       .row.collapsed-hide
         .col-11
-          h3.mb-0= user.name
+          h3.mb-0= user.to_label
     .actions.d-flex.align-items-center.mr-1.pl-3.position-absolute(data={ toggle: 'no-collapse' })
       = user.link_to_destroy
       = user.link_to_edit

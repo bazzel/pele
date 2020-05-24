@@ -15,19 +15,18 @@ class UsersController < ApplicationController
   def edit; end
 
   def create
-    @user = User.new(user_params)
+    @user = User.new(user_params).decorate
 
     if @user.save
-      redirect_to users_url, notice: t('.notice', name: @user.name)
+      redirect_to users_url, notice: t('.notice', name: @user.to_label)
     else
-      @user = @user.decorate
       render :new
     end
   end
 
   def update
     if @user.update(user_params)
-      redirect_to users_url, notice: t('.notice', name: @user.name)
+      redirect_to users_url, notice: t('.notice', name: @user.to_label)
     else
       render :edit
     end
@@ -36,13 +35,13 @@ class UsersController < ApplicationController
   def destroy
     @user.discard
 
-    flash.now.notice = t('.notice', name: @user.name)
+    flash.now.notice = t('.notice', name: @user.to_label)
   end
 
   def restore
     @user.undiscard
 
-    flash.now.notice = t('.notice', name: @user.name)
+    flash.now.notice = t('.notice', name: @user.to_label)
   end
 
   private
@@ -52,6 +51,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :role)
+    params.require(:user).permit(:name, :email, :role)
   end
 end

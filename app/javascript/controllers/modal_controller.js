@@ -23,6 +23,8 @@ export default class extends Controller {
   }
 
   get firstInput() {
-    return this.element.querySelector('input[type="text"]');
+    return this.element.querySelector(
+      'input[type="text"], input[type="email"]'
+    );
   }
 }

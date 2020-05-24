@@ -6,6 +6,7 @@
           h5.modal-title= user.form_title
           = close_icon(tooltipify(t("users.#{action_name}.cancel", subject: User.model_name.human.downcase), dismiss: 'modal'))
         .modal-body
+          = f.input :email
           = f.input :name
           = f.input :role, collection: User.roles.keys.map(&:to_sym), include_blank: false
 

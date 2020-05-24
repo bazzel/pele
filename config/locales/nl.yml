@@ -103,6 +103,7 @@ nl:
         title: "Titel toevoegen"
       user:
         name: "Naam toevoegen"
+        email: "E-mailadres toevoegen"
     options:
       user:
         role:

@@ -8,7 +8,8 @@ Feature: Create student
 
         Scenario: Create a user
             Given I am adding a new user
-             When I fill in "Naam" with "Patrick"
+             When I fill in "Naam" with "John"
+             When I fill in "E-mailadres" with "john@gmail.com"
               And I choose "Leerling" as "Rol"
               And I click "Opslaan"
              Then I expect to see 1 user
