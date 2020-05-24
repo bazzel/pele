@@ -102,3 +102,9 @@ nl:
         title: "Titel toevoegen"
       user:
         name: "Naam toevoegen"
+    options:
+      user:
+        role:
+          admin: "Admin"
+          teacher: "Docent"
+          student: "Leerling"

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 Given('I open the application') { visit '/' }
 
 When('I navigate to the songs page') { visit '/songs' }

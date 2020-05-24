@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+#:nodoc:
 module MaterialHelper
   def bs_snackbar
     render(Material::Snackbar.new(flash: flash))

@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+#:nodoc:
 class UserDecorator < ApplicationDecorator
   delegate_all
 

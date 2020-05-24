@@ -1,4 +1,7 @@
+# frozen_string_literal: true
+
 module Material
+  #:nodoc:
   class NavigationIcon < ViewComponent::Base
     include BootstrapHelper
 

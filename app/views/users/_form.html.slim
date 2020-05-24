@@ -7,7 +7,7 @@
           = close_icon(tooltipify(t("users.#{action_name}.cancel", subject: User.model_name.human.downcase), dismiss: 'modal'))
         .modal-body
           = f.input :name
-          = f.input :role, collection: User.roles.keys, include_blank: false
+          = f.input :role, collection: User.roles.keys.map(&:to_sym), include_blank: false
 
         .modal-footer
           = link_to t('helpers.submit.cancel'), '#', class: 'btn', role: :button, data: { dismiss: 'modal' }
