@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :user do
-    name { 'MyString' }
+    email { 'john.doe@example.org' }
     role { 1 }
   end
 end

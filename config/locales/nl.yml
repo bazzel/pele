@@ -44,6 +44,7 @@ nl:
     create:
       title: "Controleer je e-mail!"
       body: "We hebben een speciale link gemaild naar %{email}. Klik op de link in de e-mail om van start te kunnen gaan."
+      alert: "'%{email}' is geen geldig e-mailadres"
     destroy:
       notice: "Je bent nu afgemeld."
   sessions_mailer:

@@ -2,6 +2,10 @@
 
 # Handles signin in and out of users.
 class SessionsController < ApplicationController
+  rescue_from ActiveRecord::RecordNotFound do
+    redirect_to sign_in_url, alert: t('.alert', email: @email)
+  end
+
   skip_before_action :require_sign_in
   # skip_after_action :verify_authorized
 
@@ -11,12 +15,12 @@ class SessionsController < ApplicationController
 
   def create
     @email = params[:user][:email]
-    @user = User.find_or_initialize_by(email: @email)
+    @user = User.find_by!(email: @email)
 
     if @user.update(
-      login_token: SecureRandom.urlsafe_base64,
-      login_token_valid_until: 30.minutes.from_now
-    )
+         login_token: SecureRandom.urlsafe_base64,
+         login_token_valid_until: 30.minutes.from_now
+       )
       SessionsMailer.magic_link(@user).deliver
     else
       render :new

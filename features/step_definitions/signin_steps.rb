@@ -7,7 +7,9 @@ Given('I signed in with my email address {string}') do |email|
 end
 
 Given('I signed in') do
-  step 'I signed in with my email address "john.doe@example.org"'
+  email = 'john.doe@example.org'
+  create(:user, email: email)
+  step "I signed in with my email address \"#{email}\""
 end
 
 When('I sign up with my email address {string}') do |email|
@@ -53,5 +55,5 @@ end
 
 Then('I see an error telling me I have entered an invalid email address') do
   expect(current_path).to eql('/sign_in')
-  expect(page).to have_text('Email is geen geldig e-mailadres')
+  expect(page).to have_text(/is geen geldig e-mailadres/)
 end

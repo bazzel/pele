@@ -3,7 +3,6 @@ Feature: Edit a student
         Background:
             Given I signed in
 
-        @wip
         Scenario: Opening a modal for editing a student
             Given I have created the following users:
                   | email                | name     | role    |

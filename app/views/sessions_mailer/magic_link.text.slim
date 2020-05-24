@@ -1,4 +1,4 @@
-= t('.subject', user: @user, app_name: @app_name)
+= t('.subject', user: @user.to_label, app_name: @app_name)
 = "\r\n" * 2
 = t('.body', app_name: @app_name)
 = "\r\n" * 2
