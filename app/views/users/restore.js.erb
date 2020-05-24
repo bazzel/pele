@@ -1,0 +1,12 @@
+var el              = document.getElementById('<%= @user.dom_id %>');
+var isExpanded      = el.classList.contains('show');
+var restoreEl       = document.createElement('div');
+var collapsedHTML   = '<%= j render(partial: 'users/user', object: @user, locals: { parent: 'users' }) %>';
+var expandedHTML    = '<%= j render(partial: 'users/user', object: @user, locals: { show: true, parent: 'users' }) %>';
+
+restoreEl.innerHTML = isExpanded ? expandedHTML : collapsedHTML;
+el.replaceWith(restoreEl.firstChild);
+
+var snackbar       = document.createElement('div');
+snackbar.innerHTML = '<%= j render(Material::Snackbar.new(flash: flash)) %>';
+document.body.appendChild(snackbar.firstChild);

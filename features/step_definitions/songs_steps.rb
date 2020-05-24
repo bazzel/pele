@@ -22,5 +22,5 @@ Given('I have created the following song(s):') do |table|
 end
 
 Given('I hover over the song {string}') do |song_title|
-  find('.list-group-item', text: song_title).hover
+  step "I hover over the item \"#{song_title}\""
 end

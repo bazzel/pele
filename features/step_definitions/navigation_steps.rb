@@ -4,6 +4,10 @@ Given('I open the application') { visit '/' }
 
 When('I navigate to the songs page') { visit '/songs' }
 
+When('I navigate to the users page') do
+  step 'I choose "Gebruikers" from the navigation drawer'
+end
+
 When('I choose {string} from the navigation drawer') do |menu|
   step 'I open the application'
   find('nav button.navbar-toggler').click
@@ -13,4 +17,8 @@ When('I choose {string} from the navigation drawer') do |menu|
     # so we need to use a regex.
     find('a', text: /#{menu}/).click
   end
+end
+
+Given('I hover over the item {string}') do |item_text|
+  find('.list-group-item', text: item_text).hover
 end
