@@ -38,8 +38,16 @@ $(document).on("turbolinks:load", function () {
   $(
     ".floating-label .custom-select, .floating-label .form-control"
   ).floatinglabel();
+
+  $(window).on("scroll", function () {
+    if ($(window).scrollTop() > 0) {
+      $(".toolbar-waterfall").addClass("waterfall");
+    } else {
+      $(".toolbar-waterfall").removeClass("waterfall");
+    }
+  });
 });
 
-$(document).on('ajax:before', function() {
-  $('.tooltip').tooltip('dispose');
+$(document).on("ajax:before", function () {
+  $(".tooltip").tooltip("dispose");
 });

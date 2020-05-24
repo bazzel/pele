@@ -3,8 +3,7 @@ html
   head
     meta[charset="utf-8"]
     meta[http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"]
-    title
-      | Pele
+    title= app_name
     meta[name="description" content=""]
     meta[name="viewport" content="width=device-width, initial-scale=1"]
     = csrf_meta_tags
@@ -12,6 +11,10 @@ html
     = stylesheet_pack_tag 'styles', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   body
+    = render partial: 'navbar'
+    = render partial: 'navdrawer'
+
+
     .container
       = yield
     div(id=modal_id)

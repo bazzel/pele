@@ -16,7 +16,9 @@ nl:
 
   activerecord:
     models:
-      song: "Lied"
+      song:
+        one: "Lied"
+        other: "Liedjes"
     attributes:
       song:
         title: "Titel"

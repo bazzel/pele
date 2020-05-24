@@ -1,0 +1,15 @@
+- # See http://daemonite.github.io/material/docs/4.1/components/navbar/
+nav.navbar.fixed-top.navbar-light.bg-white.toolbar-waterfall
+  = navigation_icon
+  = link_to app_name, root_path, class: 'span navbar-brand mb-0 h1'
+
+  ul.navbar-nav.ml-auto
+  /   - if current_user.anonymous?
+  /       li.nav-item
+  /         = link_to t('.sign_in'), sign_in_path, class: 'btn btn-outline', role: :button
+  /   - else
+  /       li.nav-item.dropdown
+  /         = render(ProfileMenuComponent.new(user: current_user)) do
+  /           = link_to t('helpers.submit.profile'), profile_path, class: 'dropdown-item'
+  /           = link_to t('helpers.submit.session.destroy'), sign_out_path, method: :delete, class: 'dropdown-item'
+
