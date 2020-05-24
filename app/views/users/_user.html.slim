@@ -1,0 +1,17 @@
+.expansion-panel.list-group-item.stretchable(id=user.dom_id class=(local_assigns[:show] && 'show') data={ controller: 'expansion-panel', action: 'click->expansion-panel#toggle', target: "##{user.dom_id(:collapse)}" })
+  .expansion-panel-toggler.collapsed.position-relative
+    .media-body
+      .row.collapsed-show.align-items-center
+        - # Keep 1 column for action buttons
+        .col-3.text-truncate= user.name
+        .col-8
+
+      .row.collapsed-hide
+        .col-11
+          h3.mb-0= user.name
+    .actions.d-flex.align-items-center.mr-1.pl-3.position-absolute(data={ toggle: 'no-collapse' })
+      = user.link_to_destroy
+      = user.link_to_edit
+  .collapse(id=user.dom_id(:collapse) class=('show' if local_assigns[:show]) data={ parent: "##{parent}" })
+    .expansion-panel-body
+      | ...

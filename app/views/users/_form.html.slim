@@ -1,0 +1,14 @@
+.modal.fade(id=modal_id data={ controller: 'modal' } aria={ hidden: true, labelledby: modal_id } role='dialog' tabindex=-1)
+  .modal-dialog.modal-dialog-centered(role='document')
+    .modal-content
+      = simple_form_for(user, remote: true, html: { autocomplete: 'off' }) do |f|
+        .modal-header
+          h5.modal-title= user.form_title
+          = close_icon(tooltipify(t("users.#{action_name}.cancel", subject: User.model_name.human.downcase), dismiss: 'modal'))
+        .modal-body
+          = f.input :name
+          = f.input :role, collection: User.roles.keys, include_blank: false
+
+        .modal-footer
+          = link_to t('helpers.submit.cancel'), '#', class: 'btn', role: :button, data: { dismiss: 'modal' }
+          = f.button :submit, class: 'btn btn-outline-primary', data: { target: "##{modal_id}", toggle: 'modal' }

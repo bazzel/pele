@@ -9,3 +9,8 @@
         = link_to songs_path, class: 'nav-link' do
           = material_icon('library_music', class: 'mr-2')
           = Song.model_name.human(count: 2)
+
+      li.nav-item
+        = link_to users_path, class: 'nav-link' do
+          = material_icon('library_music', class: 'mr-2')
+          = User.model_name.human(count: 2)

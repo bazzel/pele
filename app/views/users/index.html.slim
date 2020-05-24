@@ -1,0 +1,3 @@
+- content_for(:floating_action_button) { UserDecorator.floating_action_button }
+
+#users= render partial: 'users', object: @users, layout: 'users_layout', locals: { parent: 'users' }

@@ -7,7 +7,7 @@ nl:
       cancel: "Annuleren"
       undo: "Ongedaan maken"
       user:
-        create: "Aanmelden"
+        create: "Opslaan"
       session:
         destroy: "Afmelden"
       song:
@@ -19,10 +19,16 @@ nl:
       song:
         one: "Lied"
         other: "Liedjes"
+      user:
+        one: "Gebruiker"
+        other: "Gebruikers"
+
     attributes:
       song:
         title: "Titel"
         scores: "Bladmuziek"
+      user:
+        name: "Naam"
 
   songs:
     new:
@@ -44,6 +50,24 @@ nl:
       notice: "Lied '%{title}' is hersteld."
     form:
       add_score: "Bladmuziek toevoegen"
+  users:
+    new:
+      title: "Een nieuwe %{subject} toevoegen"
+      cancel: &cancel_user_creation "Maken van %{subject} annuleren"
+    edit:
+      title: "Gebruiker bewerken"
+      cancel: &cancel_user_edit "Gebruikerwijzigingen annuleren"
+    destroy:
+      title: "Gebruiker verwijderen"
+      notice: "Gebruiker '%{name}' is verwijderd."
+    create:
+      cancel: *cancel_user_creation
+      notice: "Gebruiker '%{name}' is toegevoegd."
+    update:
+      cancel: *cancel_user_edit
+      notice: "Gebruiker '%{name}' is bijgewerkt."
+    restore:
+      notice: "Gebruiker '%{name}' is hersteld."
 
   simple_form:
     "yes": "Ja"
@@ -76,3 +100,5 @@ nl:
     placeholders:
       song:
         title: "Titel toevoegen"
+      user:
+        name: "Naam toevoegen"

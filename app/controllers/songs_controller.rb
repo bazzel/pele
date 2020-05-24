@@ -24,6 +24,7 @@ class SongsController < ApplicationController
       redirect_to songs_url, notice: t('.notice', title: @song.title)
     else
       @song = @song.decorate
+      @song.scores.build if @song.scores.none?
       render :new
     end
   end
@@ -32,6 +33,7 @@ class SongsController < ApplicationController
     if @song.update(song_params)
       redirect_to songs_url, notice: t('.notice', title: @song.title)
     else
+      @song.scores.build if @song.scores.none?
       render :edit
     end
   end
