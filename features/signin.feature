@@ -13,10 +13,6 @@ Feature:
              When I open the application
              Then I expect to see the sign in page
 
-        Scenario: Redirect to the sign in page
-             When I navigate to the songs page
-             Then I expect to be redirected to the sign in page
-
         Scenario: Sign in with a valid email address
             Given I am on the Sign in page
              When I sign up with my email address "john.doe@example.org"

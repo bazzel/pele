@@ -4,10 +4,16 @@ Given('I open the application') { visit '/' }
 
 Given('I am on the Sign in page') { visit '/sign_in' }
 
-When('I navigate to the songs page') { visit '/songs' }
+When('I navigate to the songs page') do
+  step 'I choose "Liedjes" from the navigation drawer'
+end
 
 When('I navigate to the users page') do
   step 'I choose "Gebruikers" from the navigation drawer'
+end
+
+When('I navigate to the groups page') do
+  step 'I choose "Groepen" from the navigation drawer'
 end
 
 When('I use the magic link') do

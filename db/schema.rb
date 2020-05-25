@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_24_102744) do
+ActiveRecord::Schema.define(version: 2020_05_25_170655) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "groups", force: :cascade do |t|
+    t.string "name", limit: 100
+    t.datetime "discarded_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["discarded_at"], name: "index_groups_on_discarded_at"
+  end
 
   create_table "scores", force: :cascade do |t|
     t.bigint "song_id", null: false

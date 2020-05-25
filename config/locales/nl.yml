@@ -9,10 +9,13 @@ nl:
       user:
         create: &save "Opslaan"
         update: *save
+      group:
+        create: *save
+        update: *save
       session:
         destroy: "Afmelden"
       song:
-        create: &save "Opslaan"
+        create: *save
         update: *save
 
   activerecord:
@@ -23,11 +26,16 @@ nl:
       user:
         one: "Gebruiker"
         other: "Gebruikers"
+      group:
+        one: "Groep"
+        other: "Groepen"
     attributes:
       song:
         title: "Titel"
         scores: "Bladmuziek"
       user:
+        name: "Naam"
+      group:
         name: "Naam"
     errors:
       models:
@@ -91,6 +99,24 @@ nl:
       notice: "Gebruiker '%{name}' is bijgewerkt."
     restore:
       notice: "Gebruiker '%{name}' is hersteld."
+  groups:
+    new:
+      title: "Een nieuwe %{subject} toevoegen"
+      cancel: &cancel_group_creation "Maken van %{subject} annuleren"
+    edit:
+      title: "Groep bewerken"
+      cancel: &cancel_group_edit "Groepwijzigingen annuleren"
+    destroy:
+      title: "Groep verwijderen"
+      notice: "Groep '%{name}' is verwijderd."
+    create:
+      cancel: *cancel_group_creation
+      notice: "Groep '%{name}' is toegevoegd."
+    update:
+      cancel: *cancel_group_edit
+      notice: "Groep '%{name}' is bijgewerkt."
+    restore:
+      notice: "Groep '%{name}' is hersteld."
 
   simple_form:
     "yes": "Ja"
