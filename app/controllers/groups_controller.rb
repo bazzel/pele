@@ -2,6 +2,8 @@
 
 #:nodoc:
 class GroupsController < ApplicationController
+  before_action :set_group, only: %i[edit update destroy restore]
+
   def index
     @groups = Group.kept.decorate
   end
@@ -9,6 +11,8 @@ class GroupsController < ApplicationController
   def new
     @group = Group.new.decorate
   end
+
+  def edit; end
 
   def create
     @group = Group.new(group_params).decorate
@@ -18,6 +22,26 @@ class GroupsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def update
+    if @group.update(group_params)
+      redirect_to groups_url, notice: t('.notice', name: @group.name)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @group.discard
+
+    flash.now.notice = t('.notice', name: @group.name)
+  end
+
+  def restore
+    @group.undiscard
+
+    flash.now.notice = t('.notice', name: @group.name)
   end
 
   private

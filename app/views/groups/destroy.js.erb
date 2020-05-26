@@ -1,0 +1,14 @@
+var elId       = '<%= @group.dom_id %>';
+var el         = document.getElementById(elId);
+var isExpanded = el.classList.contains('show');
+var restoreEl  = document.createElement('div');
+restoreEl.id   = elId;
+
+if (isExpanded)
+  restoreEl.classList.add('show');
+
+el.replaceWith(restoreEl);
+
+var snackbar       = document.createElement('div');
+snackbar.innerHTML = '<%= j render(Material::Snackbar.new(flash: flash, action: link_to(t('helpers.submit.undo'), restore_group_path(@group), method: :post, remote: true))) %>';
+document.body.appendChild(snackbar.firstChild);

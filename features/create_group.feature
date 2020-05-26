@@ -18,7 +18,7 @@ Feature: Create group
               And I click "Opslaan"
              Then I expect to see 1 group
 
-        @wip
+        @todo
         Scenario: Create a group
             Given I am adding a new group
              When I fill in "Naam" with "Groep 1"

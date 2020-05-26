@@ -1,5 +1,13 @@
 # frozen_string_literal: true
 
+When('I undo deleting the group/song') do
+  within('.snackbar.show') { click_on('Ongedaan maken') }
+end
+
+Then('I expect to see {int} user(s)/song(s)/group(s)') do |items_count|
+  expect(page).to have_css('div.list-group-item', count: items_count)
+end
+
 Then("I'm in") do
   expect(current_path).to eql('/')
 
