@@ -37,6 +37,7 @@ nl:
         name: "Naam"
       group:
         name: "Naam"
+        student_ids: "Leerlingen"
     errors:
       models:
         user:

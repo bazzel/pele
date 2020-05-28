@@ -16,6 +16,7 @@ class GroupsController < ApplicationController
 
   def create
     @group = Group.new(group_params).decorate
+    @group.teacher = current_user
 
     if @group.save
       redirect_to groups_url, notice: t('.notice', name: @group.name)
@@ -51,6 +52,6 @@ class GroupsController < ApplicationController
   end
 
   def group_params
-    params.require(:group).permit(:name, :student_ids)
+    params.require(:group).permit(:name, :student_ids, :teacher_id)
   end
 end

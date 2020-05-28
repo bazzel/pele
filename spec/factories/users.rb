@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :user do
-    email { 'john.doe@example.org' }
+    email { Faker::Internet.unique.email }
     role { 1 }
   end
 end

@@ -20,6 +20,7 @@ $tag-remove-btn-bg--hover: $close-color-hover;
 
 .tagify {
   @extend %form-control;
+  align-items: center;
   &.tagify--focus {
     @extend %form-control:focus;
   }
@@ -29,7 +30,7 @@ $tag-remove-btn-bg--hover: $close-color-hover;
 }
 
 .tagify__tag {
-  margin: 0 5px 0 0;
+  // margin: 0 5px 0 0;
   height: $chip-height;
   padding-right: $chip-padding-x;
   padding-left: $chip-padding-x;

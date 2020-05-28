@@ -54,4 +54,12 @@ class UserDecorator < ApplicationDecorator
   def mail_to
     name ? "#{name} <#{email}>" : email
   end
+
+  def tagify_value
+    { id: id, value: to_label }
+  end
+
+  def tagify_whitelist
+    tagify_value.merge(description: email)
+  end
 end

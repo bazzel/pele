@@ -4,7 +4,8 @@
 class Group < ApplicationRecord
   include Discard::Model
 
-  has_and_belongs_to_many :students, class_name: 'User'
+  has_and_belongs_to_many :students, class_name: 'User' # rubocop:disable Rails/HasAndBelongsToMany:
+  belongs_to :teacher, class_name: 'User'
 
   validates :name, presence: true, length: { maximum: 100 }
 
