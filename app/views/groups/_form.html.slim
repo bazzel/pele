@@ -7,8 +7,7 @@
           = close_icon(tooltipify(t("groups.#{action_name}.cancel", subject: Group.model_name.human.downcase), dismiss: 'modal'))
         .modal-body
           = f.input :name
-          = f.input :student_names, input_html: { value: group.student_names.to_s, data: { controller: 'chip-input', whitelist: User.pluck(:name).join(',') }}
-          / = f.input :writer_names, input_html: { value: book.writer_names.to_s, data: { controller: 'chip-input', whitelist: Writer.pluck(:name).join(',') }}
+          = f.input :student_ids, input_html: { value: group.students.map { |s| { id: s.id, value: s.name || s.email }}.to_json, data: { controller: 'chip-input', chip_input_whitelist: User.all.map { |u| { id: u.id, value: u.name || u.email, email: u.email.to_s }} }}
 
         .modal-footer
           = link_to t('helpers.submit.cancel'), '#', class: 'btn', role: :button, data: { dismiss: 'modal' }
