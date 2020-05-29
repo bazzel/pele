@@ -1,7 +1,7 @@
 $tags-border-color: transparent;
 $tags-hover-border-color: transparent;
 $tags-focus-border-color: transparent;
-// $tagMargin: 5px !default;
+$tagMargin: 5px;
 // $tag-pad: 0.3em 0.5em !default;
 // $tag-text-color: black !default;
 // $tag-text-color--edit: black !default;
@@ -24,39 +24,42 @@ $tag-remove-btn-bg--hover: $close-color-hover;
   &.tagify--focus {
     @extend %form-control:focus;
   }
-}
-.tagify__input {
-  padding: 0;
-}
-
-.tagify__tag {
-  // margin: 0 5px 0 0;
-  height: $chip-height;
-  padding-right: $chip-padding-x;
-  padding-left: $chip-padding-x;
-
-  > div {
-    border-radius: ($chip-height / 2);
+  &__input {
+    padding: 0;
+    margin-left: 0;
   }
 
-  .tagify__tag__removeBtn {
-    $size: 18px;
+  &__tag {
+    margin: $tagMargin $tagMargin $tagMargin 0;
+    height: $chip-height;
+    padding-right: $chip-padding-x;
+    padding-left: $chip-padding-x;
+    &:first-child {
+      margin-left: 0;
+    }
+    > div {
+      border-radius: ($chip-height / 2);
+    }
 
-    font-size: #{$size};
-    width: $size;
-    height: $size;
-    margin-right: -4px;
-    margin-left: 0;
+    .tagify__tag__removeBtn {
+      $size: 18px;
 
-    &::after {
-      color: white;
+      font-size: #{$size};
+      width: $size;
+      height: $size;
+      margin-right: -4px;
+      margin-left: 0;
+
+      &::after {
+        color: white;
+      }
+    }
+
+    &:hover:not([readonly]) div::before {
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
     }
   }
-
-  // &:hover:not([readonly]) div::before {
-  //   top: 0;
-  //   right: 0;
-  //   bottom: 0;
-  //   left: 0;
-  // }
 }
