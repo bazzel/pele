@@ -22,3 +22,7 @@ Then("I'm out") do
   # expect(page).to have_text('Je bent nu afgemeld.')
   expect(page).not_to have_button('add')
 end
+
+Then('I expect to see a message that I am not authorized') do
+  expect(page).to have_text('Je hebt niet voldoende rechten.')
+end

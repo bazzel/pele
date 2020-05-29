@@ -9,11 +9,13 @@
         = link_to songs_path, class: 'nav-link' do
           = material_icon('library_music', class: 'mr-2')
           = Song.model_name.human(count: 2)
-      li.nav-item
-        = link_to users_path, class: 'nav-link' do
-          = material_icon('person', class: 'mr-2')
-          = User.model_name.human(count: 2)
-      li.nav-item
-        = link_to groups_path, class: 'nav-link' do
-          = material_icon('people', class: 'mr-2')
-          = Group.model_name.human(count: 2)
+      - if policy(User).index?
+        li.nav-item
+          = link_to users_path, class: 'nav-link' do
+            = material_icon('person', class: 'mr-2')
+            = User.model_name.human(count: 2)
+      - if policy(Group).index?
+        li.nav-item
+          = link_to groups_path, class: 'nav-link' do
+            = material_icon('people', class: 'mr-2')
+            = Group.model_name.human(count: 2)

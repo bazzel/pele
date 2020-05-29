@@ -3,9 +3,10 @@ Feature: Create group
         Background:
             Given I have created the following users:
                   | email            | name | role    |
+                  | ace@example.org  | Ace  | teacher |
                   | gene@example.org | Gene | student |
                   | paul@example.org | Paul | student |
-              And I signed in
+              And I signed in as "ace@example.org"
 
         Scenario: Add first group
              When I choose "Groepen" from the navigation drawer

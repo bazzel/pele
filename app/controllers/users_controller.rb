@@ -5,17 +5,18 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[edit update destroy restore]
 
   def index
+    authorize User
     @users = User.kept.decorate
   end
 
   def new
-    @user = User.new.decorate
+    @user = authorize User.new.decorate
   end
 
   def edit; end
 
   def create
-    @user = User.new(user_params).decorate
+    @user = authorize User.new(user_params).decorate
 
     if @user.save
       redirect_to users_url, notice: t('.notice', name: @user.to_label)
@@ -47,7 +48,7 @@ class UsersController < ApplicationController
   private
 
   def set_user
-    @user = User.find(params[:id]).decorate
+    @user = authorize User.find(params[:id]).decorate
   end
 
   def user_params

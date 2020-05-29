@@ -10,6 +10,7 @@ Given('I am adding a new group') do
 end
 
 Given('I have created the following group(s):') do |table|
+  table.map_column!('teacher', false) { |t| User.teacher.find_by(email: t) }
   table.hashes.each { |hash| create(:group, hash) }
 end
 

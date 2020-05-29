@@ -5,17 +5,18 @@ class GroupsController < ApplicationController
   before_action :set_group, only: %i[edit update destroy restore]
 
   def index
+    authorize Group
     @groups = Group.kept.decorate
   end
 
   def new
-    @group = Group.new.decorate
+    @group = authorize Group.new.decorate
   end
 
   def edit; end
 
   def create
-    @group = Group.new(group_params).decorate
+    @group = authorize Group.new(group_params).decorate
     @group.teacher = current_user
 
     if @group.save
@@ -48,7 +49,7 @@ class GroupsController < ApplicationController
   private
 
   def set_group
-    @group = Group.find(params[:id]).decorate
+    @group = authorize Group.find(params[:id]).decorate
   end
 
   def group_params

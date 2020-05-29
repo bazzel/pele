@@ -1,7 +1,10 @@
 @javascript
 Feature: Create student
         Background:
-            Given I signed in
+            Given I have created the following users:
+                  | email            | name | role    |
+                  | ace@example.org  | Ace  | teacher |
+              And I signed in as "ace@example.org"
 
         Scenario: Add first user
              When I choose "Gebruikers" from the navigation drawer

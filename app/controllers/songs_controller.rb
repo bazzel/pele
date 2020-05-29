@@ -4,12 +4,14 @@
 class SongsController < ApplicationController
   before_action :set_song, only: %i[edit update destroy restore]
 
+  skip_after_action :verify_authorized, only: :index
+
   def index
     @songs = Song.kept.includes(:scores).order(:title).decorate
   end
 
   def new
-    @song = Song.new.decorate
+    @song = authorize Song.new.decorate
     @song.scores.build
   end
 
@@ -18,7 +20,7 @@ class SongsController < ApplicationController
   end
 
   def create
-    @song = Song.new(song_params)
+    @song = authorize Song.new(song_params)
 
     if @song.save
       redirect_to songs_url, notice: t('.notice', title: @song.title)
@@ -53,7 +55,7 @@ class SongsController < ApplicationController
   private
 
   def set_song
-    @song = Song.find(params[:id]).decorate
+    @song = authorize Song.find(params[:id]).decorate
   end
 
   def song_params

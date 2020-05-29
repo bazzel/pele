@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
   end
 
   skip_before_action :require_sign_in
-  # skip_after_action :verify_authorized
+  skip_after_action :verify_authorized
 
   def new
     @user = User.new

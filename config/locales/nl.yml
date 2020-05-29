@@ -159,3 +159,6 @@ nl:
           admin: "Admin"
           teacher: "Docent"
           student: "Leerling"
+  flash:
+    logged_out: "You are now logged out"
+    not_authorized: "Je hebt niet voldoende rechten."

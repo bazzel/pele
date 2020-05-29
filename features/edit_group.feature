@@ -1,12 +1,15 @@
 @javascript
 Feature: Edit a group
         Background:
-            Given I signed in
+            Given I have created the following users:
+                  | email           | name | role    |
+                  | ace@example.org | Ace  | teacher |
+              And I signed in as "ace@example.org"
 
         Scenario: Opening a modal for editing a group
             Given I have created the following group:
-                  | name    |
-                  | Group 1 |
+                  | name    | teacher         |
+                  | Group 1 | ace@example.org |
               And I navigate to the groups page
               And I hover over the group "Group 1"
              When I click the "create" button

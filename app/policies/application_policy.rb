@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 #:nodoc:
 class ApplicationPolicy
   attr_reader :user, :record
 
   def initialize(user, record)
-    @user = user
+    @user = user.is_a?(UserDecorator) ? user.model : user
     @record = record
   end
 
@@ -35,6 +37,7 @@ class ApplicationPolicy
     false
   end
 
+  #:nodoc:
   class Scope
     attr_reader :user, :scope
 

@@ -1,8 +1,11 @@
 @javascript
 Feature: Create song
         Background:
-            Given I signed in
-        
+            Given I have created the following users:
+                  | email            | name | role    |
+                  | ace@example.org  | Ace  | teacher |
+              And I signed in as "ace@example.org"
+
         Scenario: Add first song
             Given I navigate to the songs page
              When I click the "add" button

@@ -3,7 +3,11 @@
 Given('I signed in with my email address {string}') do |email|
   step 'I am on the Sign in page'
   step "I sign up with my email address \"#{email}\""
-  step 'I use the magic link'
+  step "I use the magic link for \"#{email}\""
+end
+
+Given('I signed in as {string}') do |email|
+  step "I signed in with my email address \"#{email}\""
 end
 
 Given('I signed in') do

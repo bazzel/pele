@@ -2,8 +2,12 @@
 
 #:nodoc:
 class ApplicationController < ActionController::Base
+  include Pundit
   before_action :require_sign_in
   before_action :make_action_mailer_use_request_host_and_protocol
+  after_action :verify_authorized
+
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   helper_method :current_user
 
@@ -24,5 +28,10 @@ class ApplicationController < ActionController::Base
   def make_action_mailer_use_request_host_and_protocol
     ActionMailer::Base.default_url_options[:protocol] = request.protocol
     ActionMailer::Base.default_url_options[:host] = request.host_with_port
+  end
+
+  def user_not_authorized
+    flash[:warning] = t('flash.not_authorized')
+    redirect_to(request.referer || root_path)
   end
 end
