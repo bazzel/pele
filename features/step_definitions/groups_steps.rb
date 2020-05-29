@@ -16,3 +16,15 @@ end
 Given('I hover over the group {string}') do |group_title|
   step "I hover over the item \"#{group_title}\""
 end
+
+When('I add the students {string}') do |text|
+  student_names = text.split(/\s*,\s*/)
+
+  student_names.each do |name|
+    within('form .group_student_ids') do
+      el = find('.tagify__input')
+      el.set("#{name}\n")
+      el.send_keys(:enter)
+    end
+  end
+end

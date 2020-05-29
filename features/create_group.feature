@@ -18,10 +18,9 @@ Feature: Create group
               And I click "Opslaan"
              Then I expect to see 1 group
 
-        @todo
         Scenario: Create a group
             Given I am adding a new group
              When I fill in "Naam" with "Groep 1"
-              And I add "gene@example.org" and "paul@example.org" as students
+              And I add the students "gene@example.org, paul@example.org"
               And I click "Opslaan"
              Then I expect to see 1 group
