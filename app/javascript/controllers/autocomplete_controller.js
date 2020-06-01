@@ -1,5 +1,6 @@
 import { Controller } from "stimulus";
 import Autocomplete from "@trevoreyre/autocomplete-js";
+import * as _ from "lodash";
 
 // This controller turns a text input into a autocomplete text input.
 //
@@ -20,14 +21,14 @@ export default class extends Controller {
 
   initialize() {
     new Autocomplete(this.element, {
-      search: this.search.bind(this),
+      search: _.throttle(this._search, 200).bind(this),
       onSubmit: this.onSubmit.bind(this),
       getResultValue: ({ title }) => title,
       renderResult: this.renderResult,
     });
   }
 
-  async search(input) {
+  async _search(input) {
     // Make `books` a data attribute when we decide
     // to re-use this controller.
     const url = `/songs.json?q[title_cont]=${encodeURI(input)}`;
