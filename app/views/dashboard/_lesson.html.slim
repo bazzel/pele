@@ -14,6 +14,7 @@
       .row.collapsed-hide
         .col-11
     .actions.d-flex.align-items-center.mr-1.pl-3.position-absolute(data={ toggle: 'no-collapse' })
+      = lesson.song.link_to_pin_or_unpin
       / = group.link_to_destroy
       / = group.link_to_edit
   .collapse(id=lesson.dom_id(:collapse) class=('show' if local_assigns[:show]) data={ parent: "##{parent}" })
