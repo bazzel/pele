@@ -5,6 +5,7 @@
         - # Keep 1 column for action buttons
         .col-3.text-truncate= group.name
         .col-8
+          = group.students.map(&:to_label).to_sentence
 
       .row.collapsed-hide
         .col-11
