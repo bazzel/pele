@@ -15,3 +15,12 @@ Feature: Student policies
             Given I signed in as "jane.doe@example.org"
              When I navigate to "/users"
              Then I expect to see a message that I am not authorized
+
+        @wip
+        Scenario: Student can't add new songs
+            Given I have created the following users:
+                  | email                | name     | role    |
+                  | jane.doe@example.org | Jane Doe | student |
+            Given I signed in as "jane.doe@example.org"
+            Given I navigate to the songs page
+             Then I expect not to see the "add" button

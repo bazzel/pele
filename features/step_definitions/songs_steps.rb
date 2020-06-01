@@ -2,8 +2,6 @@
 
 Given('I have {int} songs') { |songs_count| create_list(:song, songs_count) }
 
-When('I click( the) {string}( button)') { |label| click_on label }
-
 Given('I am adding a new song') do
   step 'I navigate to the songs page'
   step 'I click the "add" button'

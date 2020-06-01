@@ -13,6 +13,8 @@ class SongDecorator < ApplicationDecorator
   #     end
   #   end
   def self.floating_action_button
+    return unless SongPolicy.new(h.current_user, self.class).new?
+
     h.fab_wrapper { h.fab_button(h.new_song_path, remote: true) }
   end
 

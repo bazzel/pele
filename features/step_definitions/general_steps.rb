@@ -4,6 +4,8 @@ When('I undo deleting the group/song') do
   within('.snackbar.show') { click_on('Ongedaan maken') }
 end
 
+When('I click( the) {string}( button)') { |label| click_on label }
+
 Then('I expect to see {int} user(s)/song(s)/group(s)') do |items_count|
   expect(page).to have_css('div.list-group-item', count: items_count)
 end
@@ -25,4 +27,8 @@ end
 
 Then('I expect to see a message that I am not authorized') do
   expect(page).to have_text('Je hebt niet voldoende rechten.')
+end
+
+Then('I expect not to see the {string} button') do |label|
+  expect(page).not_to have_link(label)
 end
