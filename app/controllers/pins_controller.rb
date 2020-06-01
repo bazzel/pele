@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+#:nodoc:
 class PinsController < ApplicationController
   before_action :set_song, only: %i[create]
   before_action :set_pin, only: %i[destroy]
@@ -5,19 +8,17 @@ class PinsController < ApplicationController
   def create
     pin = authorize current_user.pins.build(song: @song)
 
-    if pin.save
-      flash.now.notice = t('.notice', title: @song.title)
-      render :create_or_destroy
-    end
+    pin.save!
+    flash.now.notice = t('.notice', title: @song.title)
+    render :create_or_destroy
   end
 
   def destroy
     @song = @pin.song.decorate
 
-    if @pin.destroy
-      flash.now.notice = t('.notice', title: @song.title)
-      render :create_or_destroy
-    end
+    @pin.destroy!
+    flash.now.notice = t('.notice', title: @song.title)
+    render :create_or_destroy
   end
 
   private
