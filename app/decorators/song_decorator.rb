@@ -41,6 +41,10 @@ class SongDecorator < ApplicationDecorator
     h.link_to body, url, link_to_destroy_options
   end
 
+  def link_to_pin_or_unpin
+    link_to_pin || link_to_unpin
+  end
+
   private
 
   def link_to_edit_options
@@ -51,5 +55,43 @@ class SongDecorator < ApplicationDecorator
   def link_to_destroy_options
     tooltip = h.tooltipify(I18n.t('songs.destroy.title'))
     default_html_options.merge(tooltip, method: :delete)
+  end
+
+  def link_to_pin
+    return unless pin?
+
+    tooltip = h.tooltipify(I18n.t('pins.create.title'), model: dom_id(:pin))
+    body = h.material_icon('push_pin')
+    url = h.song_pins_path(object)
+    html_options = default_html_options.merge(tooltip, method: :post)
+
+    h.link_to body, url, html_options
+  end
+
+  def link_to_unpin
+    return unless unpin?
+
+    tooltip = h.tooltipify(I18n.t('pins.destroy.title'), model: dom_id(:pin))
+    body = h.material_icon('push_pin')
+    pin = pins.find_by(user: h.current_user)
+    url = h.pin_path(pin)
+    html_options = default_html_options('text-primary visible')
+    html_options.merge!(method: :delete)
+    html_options.merge!(tooltip)
+
+    h.link_to body, url, html_options
+  end
+
+  def unpin?
+    pin_policy.destroy?
+  end
+
+  def pin?
+    pin_policy.create?
+  end
+
+  def pin_policy
+    pin = pins.find_by(user: h.current_user)
+    PinPolicy.new(h.current_user, pin)
   end
 end

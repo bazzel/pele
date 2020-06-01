@@ -7,6 +7,7 @@ class Song < ApplicationRecord
   validates :title, presence: true, length: { maximum: 255 }
 
   has_many :scores, dependent: :destroy
+  has_many :pins, dependent: :destroy
 
   accepts_nested_attributes_for :scores,
                                 reject_if: lambda { |attributes|

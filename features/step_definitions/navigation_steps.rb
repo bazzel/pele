@@ -4,6 +4,8 @@ Given('I open the application') { visit '/' }
 
 Given('I am on the Sign in page') { visit '/sign_in' }
 
+When('I navigate to the home page') { step 'I open the application' }
+
 When('I navigate to the songs page') do
   step 'I choose "Liedjes" from the navigation drawer'
 end

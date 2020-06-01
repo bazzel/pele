@@ -46,6 +46,11 @@ nl:
             email:
               not_an_email_address: "is geen geldig e-mailadres"
 
+  # pages:
+  #
+  dashboard:
+    index:
+      pins: "Vastgezette liedjes"
   sessions:
     new:
       title: "Aanmelden bij %{app_name}"
@@ -121,7 +126,15 @@ nl:
       notice: "Groep '%{name}' is hersteld."
     form:
       add_lesson: "Les toevoegen"
-
+  pins:
+    create:
+      title: "Lied vastzetten"
+      notice: "Lied '%{title}' is vastgezet."
+    destroy:
+      title: "Lied niet meer vastzetten"
+      notice: "Lied '%{title}' staat niet meer vast."
+  #
+  # End pages.
   simple_form:
     "yes": "Ja"
     "no": "Nee"

@@ -15,6 +15,7 @@
         .col-11
           h3.mb-0= song.title
     .actions.d-flex.align-items-center.mr-1.pl-3.position-absolute(data={ toggle: 'no-collapse' })
+      = song.link_to_pin_or_unpin
       = song.link_to_destroy
       = song.link_to_edit
   .collapse(id=song.dom_id(:collapse) class=('show' if local_assigns[:show]) data={ parent: "##{parent}" })

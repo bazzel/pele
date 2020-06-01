@@ -1,0 +1,11 @@
+var list            = document.querySelectorAll('[data-model="<%= @song.dom_id(:pin) %>"]')
+var restoreEl       = document.createElement('div');
+restoreEl.innerHTML = '<%= j @song.link_to_pin_or_unpin %>';
+var snackbar        = document.createElement('div');
+
+for (let node of list) {
+  node.replaceWith(restoreEl.firstChild);
+}
+
+snackbar.innerHTML = '<%= j bs_snackbar %>';
+document.body.appendChild(snackbar.firstChild);

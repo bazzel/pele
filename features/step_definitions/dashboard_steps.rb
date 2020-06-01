@@ -9,3 +9,11 @@ Then(
     song_names.each { |song_name| expect(page).to have_content(song_name) }
   end
 end
+
+Then('I expect to see the songs {string} as pinned song') do |songs|
+  song_names = songs.split(/\s*,\s*/)
+
+  within('.pinned') do
+    song_names.each { |song_name| expect(page).to have_content(song_name) }
+  end
+end
