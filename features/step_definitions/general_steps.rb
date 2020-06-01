@@ -4,6 +4,10 @@ When('I undo deleting the group/song') do
   within('.snackbar.show') { click_on('Ongedaan maken') }
 end
 
+When('I expand the panel for {string}') do |title|
+  find('.expansion-panel', text: title).click
+end
+
 When('I click( the) {string}( button)') { |label| click_on label }
 
 Then('I expect to see {int} user(s)/song(s)/group(s)') do |items_count|

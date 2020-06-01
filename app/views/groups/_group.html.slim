@@ -16,4 +16,6 @@
       = group.link_to_edit
   .collapse(id=group.dom_id(:collapse) class=('show' if local_assigns[:show]) data={ parent: "##{parent}" })
     .expansion-panel-body
-      | ...
+      ul
+        - group.lessons.each do |lesson|
+          li= lesson.song.title

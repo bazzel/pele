@@ -1,5 +1,27 @@
 = simple_form_for(group, html: { autocomplete: 'off' }) do |f|
-  = f.input :name
+  = f.input :name, autofocus: true
   = f.input :student_ids, input_html: { value: group.students.map(&:tagify_value).to_json, data: { controller: 'chip-input', chip_input_whitelist: User.student.decorate.map(&:tagify_whitelist) }}
+
+  fieldset(data-controller='nested-form')
+    template(data-target='nested-form.template')
+      = f.fields_for :lessons, Lesson.new, child_index: 'NEW_RECORD' do |lesson|
+        = render 'groups/lesson_fields', f: lesson
+
+    .form-group.row
+      legend.col-form-label.col-2= Group.human_attribute_name('lessons')
+      .col.nested-form
+        - group.errors[:lessons].each do |msg|
+          p.text-danger.mt-2= msg
+
+        = f.fields_for :lessons, group.lessons do |lesson|
+          = render 'lesson_fields', f: lesson
+
+        div(data-target='nested-form.links')
+          = link_to t('.add_lesson'), "#", class: 'btn btn-outline', role: :button, data: { action: 'nested-form#add_association' }
+
+
+
+
+
 
   = f.button :submit, class: 'btn btn-outline-primary'

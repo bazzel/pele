@@ -33,6 +33,7 @@ gem 'draper'
 gem "fog-aws"
 gem 'mini_magick'
 gem "pundit"
+gem 'ransack' # Object-based searching.
 gem 'simple_form'
 gem 'slim-rails', '~> 3.2'
 gem 'view_component'

@@ -38,6 +38,7 @@ nl:
       group:
         name: "Naam"
         student_ids: "Leerlingen"
+        lessons: "Lessen"
     errors:
       models:
         user:
@@ -118,6 +119,8 @@ nl:
       notice: "Groep '%{name}' is bijgewerkt."
     restore:
       notice: "Groep '%{name}' is hersteld."
+    form:
+      add_lesson: "Les toevoegen"
 
   simple_form:
     "yes": "Ja"

@@ -11,17 +11,20 @@ class GroupsController < ApplicationController
 
   def new
     @group = authorize Group.new.decorate
+    @group.lessons.build
   end
 
-  def edit; end
+  def edit
+    @group.lessons.build if @group.lessons.none?
+  end
 
   def create
     @group = authorize Group.new(group_params).decorate
-    @group.teacher = current_user
 
     if @group.save
       redirect_to groups_url, notice: t('.notice', name: @group.name)
     else
+      @group.lessons.build if @group.lessons.none?
       render :new
     end
   end
@@ -30,6 +33,7 @@ class GroupsController < ApplicationController
     if @group.update(group_params)
       redirect_to groups_url, notice: t('.notice', name: @group.name)
     else
+      @group.lessons.build if @group.lessons.none?
       render :edit
     end
   end
@@ -53,6 +57,11 @@ class GroupsController < ApplicationController
   end
 
   def group_params
-    params.require(:group).permit(:name, :student_ids, :teacher_id)
+    params.require(:group).permit(
+      :name,
+      :student_ids,
+      :teacher_id,
+      lessons_attributes: %i[id song_id song_title _destroy]
+    ).merge(teacher: current_user)
   end
 end
