@@ -1,5 +1,6 @@
 @javascript
 Feature: Edit a group
+
         Background:
             Given I have created the following users:
                   | email           | name | role    |

@@ -6,7 +6,7 @@ class GroupsController < ApplicationController
 
   def index
     authorize Group
-    @groups = Group.kept.decorate
+    @groups = policy_scope(Group).kept.decorate
   end
 
   def new

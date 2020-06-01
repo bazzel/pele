@@ -5,7 +5,7 @@ class GroupPolicy < ApplicationPolicy
   #:nodoc:
   class Scope < Scope
     def resolve
-      scope.all
+      scope.where(teacher: user)
     end
   end
 
