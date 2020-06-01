@@ -6,7 +6,13 @@ class GroupsController < ApplicationController
 
   def index
     authorize Group
-    @groups = policy_scope(Group).kept.decorate
+    @groups =
+      policy_scope(Group).kept.includes(
+        :groups_students,
+        :students,
+        :teacher,
+        lessons: %i[song]
+      ).decorate
   end
 
   def new

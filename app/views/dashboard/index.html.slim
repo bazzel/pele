@@ -1,0 +1,6 @@
+#groups
+  - @groups.each do |group|
+    .group
+      h1.h5.text-black-50.ml-4.mt-4= group.name
+
+      = render partial: 'lessons', object: group.lessons, layout: 'lessons_layout', locals: { parent: 'groups' }

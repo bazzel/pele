@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   enum role: { admin: 0, teacher: 1, student: 2 }
 
+  has_and_belongs_to_many :groups # rubocop:disable Rails/HasAndBelongsToMany:
+
   validates :email,
             presence: true,
             uniqueness: { case_sensitive: false },

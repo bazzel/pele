@@ -1,0 +1,20 @@
+.expansion-panel.list-group-item.stretchable(id=lesson.dom_id class=(local_assigns[:show] && 'show') data={ controller: 'expansion-panel', action: 'click->expansion-panel#toggle', target: "##{lesson.dom_id(:collapse)}" })
+  .expansion-panel-toggler.collapsed.position-relative
+    .media-body
+      .row.collapsed-show.align-items-center
+        - # Keep 1 column for action buttons
+        .col-3.text-truncate= lesson.song.title
+        .col-8
+          - lesson.song.scores.each do |score|
+            .badge.badge-pill.badge-light.border.py-1.mr-2
+              = link_to(score.attachment.url, class: 'text-dark small text-truncate', target: '_blank', data: { toggle: 'no-collapse' }) do
+                small= material_icon('attach_file')
+                = score.attachment.identifier
+
+      .row.collapsed-hide
+        .col-11
+    .actions.d-flex.align-items-center.mr-1.pl-3.position-absolute(data={ toggle: 'no-collapse' })
+      / = group.link_to_destroy
+      / = group.link_to_edit
+  .collapse(id=lesson.dom_id(:collapse) class=('show' if local_assigns[:show]) data={ parent: "##{parent}" })
+    .expansion-panel-body

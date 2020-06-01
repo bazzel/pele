@@ -1,16 +1,16 @@
 @javascript
 Feature: Manage lessons
 
-        @wip
+        @todo
         Scenario: Add lesson on edit page
             Given I have created the following users:
-                  | email            | name | role    |
-                  | ace@example.org  | Ace  | teacher |
+                  | email           | name | role    |
+                  | ace@example.org | Ace  | teacher |
               And I have created the following songs:
-                  | title       |
+                  | title     |
                   | Firehouse |
-                  | Deuce |
-                  | Cold Gin |
+                  | Deuce     |
+                  | Cold Gin  |
               And I have created the following group:
                   | name    | teacher         |
                   | Group 1 | ace@example.org |
@@ -20,7 +20,3 @@ Feature: Manage lessons
               And I add the song "Cold Gin"
               And I click "Opslaan"
              Then I expect to see the songs "Deuce, Cold Gin" have been added to the group "Group 1"
-
-
-
-        

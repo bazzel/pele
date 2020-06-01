@@ -17,6 +17,10 @@ end
 
 Given('I have created the following group(s):') do |table|
   table.map_column!('teacher', false) { |t| User.teacher.find_by(email: t) }
+  table.map_column!('students', false) do |s|
+    User.where(email: s.split(/\s*,\s*/))
+  end
+
   table.hashes.each { |hash| create(:group, hash) }
 end
 
@@ -43,7 +47,7 @@ When('I add the song {string}') do |song_title|
     within(field) do
       input_field = page.find('input')
       input_field.fill_in(with: song_title)
-      sleep 0.1
+      sleep 0.3
       within('ul.autocomplete-result-list') do
         find('li', text: song_title).click
       end

@@ -7,8 +7,6 @@ class SongsController < ApplicationController
   skip_after_action :verify_authorized, only: :index
 
   def index
-    # @songs = Song.kept.includes(:scores).order(:title).decorate
-
     @q = Song.ransack(params[:q])
     @songs = @q.result.kept.includes(:scores).order(:title).decorate
   end
