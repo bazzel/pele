@@ -1,0 +1,4 @@
+- content_for :header do
+  h1.card-title= t('.title', subject: Group.model_name.human.downcase)
+
+= render partial: 'form', object: @group, as: :group, layout: 'form_layout'

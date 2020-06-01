@@ -11,7 +11,7 @@ Feature: Create group
         Scenario: Add first group
              When I choose "Groepen" from the navigation drawer
              When I click the "add" button
-             Then I expect to see a modal for adding a new group
+             Then I expect to see a page for adding a new group
 
         Scenario: Create an empty group
             Given I am adding a new group

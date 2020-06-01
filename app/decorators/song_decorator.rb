@@ -24,25 +24,32 @@ class SongDecorator < ApplicationDecorator
   end
 
   def link_to_edit
-    # return unless h.policy(object).edit?
+    return unless h.policy(object).edit?
 
-    tooltip = h.tooltipify(I18n.t('songs.edit.title'))
     body = h.material_icon('create')
     url = h.edit_song_path(object)
-    html_options = default_html_options.merge(tooltip)
 
-    h.link_to body, url, html_options
+    h.link_to body, url, link_to_edit_options
   end
 
   def link_to_destroy
-    # return unless h.policy(object).destroy?
+    return unless h.policy(object).destroy?
 
-    tooltip = h.tooltipify(I18n.t('songs.destroy.title'))
     body = h.material_icon('delete')
     url = object
-    html_options = default_html_options.merge(tooltip)
-    html_options.merge!(method: :delete)
 
-    h.link_to body, url, html_options
+    h.link_to body, url, link_to_destroy_options
+  end
+
+  private
+
+  def link_to_edit_options
+    tooltip = h.tooltipify(I18n.t('songs.edit.title'))
+    default_html_options.merge(tooltip)
+  end
+
+  def link_to_destroy_options
+    tooltip = h.tooltipify(I18n.t('songs.destroy.title'))
+    default_html_options.merge(tooltip, method: :delete)
   end
 end

@@ -14,7 +14,7 @@ class GroupDecorator < ApplicationDecorator
   #     end
   #   end
   def self.floating_action_button
-    h.fab_wrapper { h.fab_button(h.new_group_path, remote: true) }
+    h.fab_wrapper { h.fab_button(h.new_group_path) }
   end
 
   def form_title
@@ -23,25 +23,32 @@ class GroupDecorator < ApplicationDecorator
   end
 
   def link_to_edit
-    # return unless h.policy(object).edit?
+    return unless h.policy(object).edit?
 
-    tooltip = h.tooltipify(I18n.t('groups.edit.title'))
     body = h.material_icon('create')
     url = h.edit_group_path(object)
-    html_options = default_html_options.merge(tooltip)
 
-    h.link_to body, url, html_options
+    h.link_to body, url, link_to_edit_options
   end
 
   def link_to_destroy
-    # return unless h.policy(object).destroy?
+    return unless h.policy(object).destroy?
 
-    tooltip = h.tooltipify(I18n.t('groups.destroy.title'))
     body = h.material_icon('delete')
     url = object
-    html_options = default_html_options.merge(tooltip)
-    html_options.merge!(method: :delete)
 
-    h.link_to body, url, html_options
+    h.link_to body, url, link_to_destroy_options
+  end
+
+  private
+
+  def link_to_edit_options
+    tooltip = h.tooltipify(I18n.t('groups.edit.title'))
+    default_html_options(nil, false).merge(tooltip)
+  end
+
+  def link_to_destroy_options
+    tooltip = h.tooltipify(I18n.t('groups.destroy.title'))
+    default_html_options.merge(tooltip, method: :delete)
   end
 end

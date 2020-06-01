@@ -14,7 +14,7 @@ Feature: Edit a group
               And I navigate to the groups page
               And I hover over the group "Group 1"
              When I click the "create" button
-             Then I expect to see a modal with "Group 1" as title
+             Then I expect to see a page for editing the group
              When I fill in "Naam" with "Groep 1"
               And I click "Opslaan"
              Then I expect to see 1 group

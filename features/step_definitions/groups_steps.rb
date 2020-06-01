@@ -29,3 +29,16 @@ When('I add the students {string}') do |text|
     end
   end
 end
+
+Then('I expect to see a page for adding a new group') do
+  expect(current_path).to eql('/groups/new')
+  expect(page).to have_content('Een nieuwe groep toevoegen')
+
+  within('form') { expect(page).to have_button('Opslaan') }
+end
+
+Then('I expect to see a page for editing the group') do
+  expect(current_path).to match(%r{/groups/.*/edit})
+
+  within('form') { expect(page).to have_button('Opslaan') }
+end

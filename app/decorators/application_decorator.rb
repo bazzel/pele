@@ -12,9 +12,13 @@ class ApplicationDecorator < Draper::Decorator
     h.dom_id(object, prefix)
   end
 
-  private
+  protected
 
-  def default_html_options(class_name = nil)
-    { remote: true, class: h.sm_rnd_btn_class(class_name), role: :button }
+  def default_html_options(class_name = nil, remote = true)
+    html_options = { class: h.sm_rnd_btn_class(class_name), role: :button }
+
+    html_options[:remote] = true if remote
+
+    html_options
   end
 end

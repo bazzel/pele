@@ -1,14 +1,5 @@
-.modal.fade(id=modal_id data={ controller: 'modal' } aria={ hidden: true, labelledby: modal_id } role='dialog' tabindex=-1)
-  .modal-dialog.modal-dialog-centered(role='document')
-    .modal-content
-      = simple_form_for(group, remote: true, html: { autocomplete: 'off' }) do |f|
-        .modal-header
-          h5.modal-title= group.form_title
-          = close_icon(tooltipify(t("groups.#{action_name}.cancel", subject: Group.model_name.human.downcase), dismiss: 'modal'))
-        .modal-body
-          = f.input :name
-          = f.input :student_ids, input_html: { value: group.students.map(&:tagify_value).to_json, data: { controller: 'chip-input', chip_input_whitelist: User.student.decorate.map(&:tagify_whitelist) }}
+= simple_form_for(group, html: { autocomplete: 'off' }) do |f|
+  = f.input :name
+  = f.input :student_ids, input_html: { value: group.students.map(&:tagify_value).to_json, data: { controller: 'chip-input', chip_input_whitelist: User.student.decorate.map(&:tagify_whitelist) }}
 
-        .modal-footer
-          = link_to t('helpers.submit.cancel'), '#', class: 'btn', role: :button, data: { dismiss: 'modal' }
-          = f.button :submit, class: 'btn btn-outline-primary', data: { target: "##{modal_id}", toggle: 'modal' }
+  = f.button :submit, class: 'btn btn-outline-primary'
