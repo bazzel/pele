@@ -9,7 +9,7 @@
 
     .form-group.row
       legend.col-form-label.col-2= Group.human_attribute_name('lessons')
-      .col.nested-form
+      .col.col-lg-6.nested-form
         - group.errors[:lessons].each do |msg|
           p.text-danger.mt-2= msg
 
