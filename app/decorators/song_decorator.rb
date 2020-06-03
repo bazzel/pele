@@ -50,12 +50,13 @@ class SongDecorator < ApplicationDecorator
   def link_to_pin
     return unless pin?
 
-    tooltip = h.tooltipify(I18n.t('pins.create.title'), model: dom_id(:pin))
     body = h.material_icon('push_pin')
-    url = h.song_pins_path(object)
-    html_options = default_html_options.merge(tooltip, method: :post)
+    url =
+      h.pins_path(
+        pin: { pinnable_id: object.id, pinnable_type: object.class.name }
+      )
 
-    h.link_to body, url, html_options
+    h.link_to body, url, link_to_pin_options
   end
 
   def link_to_unpin
@@ -94,5 +95,10 @@ class SongDecorator < ApplicationDecorator
   def link_to_unpin_options
     tooltip = h.tooltipify(I18n.t('pins.destroy.title'), model: dom_id(:pin))
     default_html_options('text-primary visible').merge(tooltip, method: :delete)
+  end
+
+  def link_to_pin_options
+    tooltip = h.tooltipify(I18n.t('pins.create.title'), model: dom_id(:pin))
+    default_html_options.merge(tooltip, method: :post)
   end
 end

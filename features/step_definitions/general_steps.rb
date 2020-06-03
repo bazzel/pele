@@ -17,7 +17,7 @@ end
 Then("I'm in") do
   expect(current_path).to eql('/')
 
-  within('nav') { expect(page).to have_text(@user.email) }
+  within('nav') { expect(page).to have_text(@user.decorate.to_label) }
 
   # expect(page).to have_link('add')
 end

@@ -2,19 +2,19 @@
 
 #:nodoc:
 class PinsController < ApplicationController
-  before_action :set_song, only: %i[create]
   before_action :set_pin, only: %i[destroy]
 
   def create
-    pin = authorize current_user.pins.build(song: @song)
+    pin = authorize current_user.pins.build(pin_params)
 
     pin.save!
+    @song = pin.pinnable.decorate
     flash.now.notice = t('.notice', title: @song.title)
     render :create_or_destroy
   end
 
   def destroy
-    @song = @pin.song.decorate
+    @song = @pin.pinnable.decorate
 
     @pin.destroy!
     flash.now.notice = t('.notice', title: @song.title)
@@ -23,8 +23,8 @@ class PinsController < ApplicationController
 
   private
 
-  def set_song
-    @song = Song.find(params[:song_id]).decorate
+  def pin_params
+    params.require(:pin).permit(:pinnable_type, :pinnable_id)
   end
 
   def set_pin

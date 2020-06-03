@@ -7,6 +7,7 @@ class Group < ApplicationRecord
   has_and_belongs_to_many :students, class_name: 'User' # rubocop:disable Rails/HasAndBelongsToMany:
   belongs_to :teacher, class_name: 'User'
   has_many :lessons, dependent: :destroy
+  has_many :songs, through: :lessons
 
   accepts_nested_attributes_for :lessons,
                                 reject_if: lambda { |attributes|

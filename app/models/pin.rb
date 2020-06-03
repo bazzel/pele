@@ -2,6 +2,6 @@
 
 #:nodoc:
 class Pin < ApplicationRecord
-  belongs_to :song
+  belongs_to :pinnable, polymorphic: true
   belongs_to :user
 end

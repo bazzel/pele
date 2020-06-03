@@ -28,7 +28,7 @@ end
 
 When('I sign out') do
   within('nav') do
-    click_on @user.email
+    click_on @user.decorate.to_label
     click_on 'Afmelden'
   end
 end

@@ -8,8 +8,8 @@ Rails.application.routes.draw do
 
   resources :songs do
     post 'restore', on: :member
-    resources :pins, shallow: true, only: %i[create destroy]
   end
+  resources :pins, only: %i[create destroy]
 
   resources :users do
     post 'restore', on: :member

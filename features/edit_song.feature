@@ -1,7 +1,10 @@
 @javascript
 Feature: Edit a song
         Background:
-            Given I signed in
+            Given I have created the following users:
+                  | email            | name | role    |
+                  | ace@example.org  | Ace  | teacher |
+              And I signed in as "ace@example.org"
 
         Scenario: Opening a modal for editing a song
             Given I have created the following songs:

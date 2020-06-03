@@ -8,6 +8,7 @@ class User < ApplicationRecord
 
   has_many :pins, dependent: :destroy
   has_and_belongs_to_many :groups # rubocop:disable Rails/HasAndBelongsToMany:
+  has_many :songs, through: :groups
 
   validates :email,
             presence: true,
