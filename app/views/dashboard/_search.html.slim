@@ -4,7 +4,7 @@
       .d-flex
         .form-group.flex-grow-1
           .textfield-box
-            / = f.search_field :title_cont, autofocus: true, placeholder: t('.placeholders.query'), class: 'form-control', data: { target: 'search.query', action: 'input->search#perform' }
+            = f.search_field :title_cont, value: params.dig(:q, :title_cont), autofocus: true, placeholder: t('.query'), class: 'form-control', data: { target: 'search.query', xaction: 'input->search#perform' }
 
         .form-group.pl-3.align-self-center.d-flex.justify-content-end
           .custom-control.custom-switch.pl-5

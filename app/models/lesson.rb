@@ -6,6 +6,8 @@ class Lesson < ApplicationRecord
   belongs_to :group
   has_many :pins, as: :pinnable, dependent: :destroy
 
+  ransack_alias :title, :song_title
+
   def song_title
     @song_title ||= song&.title
   end
