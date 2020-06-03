@@ -1,0 +1,21 @@
+.custom-switch {
+  .claim-toggle.custom-control-label {
+    &:after {
+      @include transition-standard(background-color, transform, color);
+      font-family: "Material Icons";
+
+      content: "push_pin";
+      line-height: $selection-control-indicator-size;
+      text-align: center;
+    }
+  }
+  .custom-control-input {
+    &:checked {
+      ~ .claim-toggle.custom-control-label {
+        &::after {
+          @extend .text-white-primary;
+        }
+      }
+    }
+  }
+}
