@@ -15,4 +15,6 @@ class Song < ApplicationRecord
                                     attributes['attachment_cache'].blank?
                                 },
                                 allow_destroy: true
+
+  scope :pinned_by, ->(user) { joins(:pins).merge(user.pins) }
 end
