@@ -1,7 +1,6 @@
 @javascript
 Feature: Pin songs
 
-        @wip
         Scenario: Pin song
             Given I have created the following users:
                   | email            | name | role    |

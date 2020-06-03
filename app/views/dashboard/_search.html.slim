@@ -1,6 +1,6 @@
 .search-form.card.mb-5
   .card-body.pb-0
-    = search_form_for q, url: root_path, remote: true, html: { autocomplete: :off, data: { controller: 'search', target: 'search.form' } } do |f|
+    = search_form_for q, url: dashboard_path, html: { autocomplete: :off, data: { controller: 'search', target: 'search.form' } } do |f|
       .d-flex
         .form-group.flex-grow-1
           .textfield-box

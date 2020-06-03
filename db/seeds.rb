@@ -1,6 +1,7 @@
 return unless Rails.env.development?
 
 include FactoryBot::Syntax::Methods if defined?(FactoryBot)
+Faker::Config.locale = 'nl'
 
 Group.destroy_all
 User.destroy_all
