@@ -51,6 +51,8 @@ nl:
   dashboard:
     index:
       pins: "Vastgezette liedjes"
+    search:
+      query: "Zoek een lied"
   sessions:
     new:
       title: "Aanmelden bij %{app_name}"

@@ -21,7 +21,7 @@ Feature: Pin songs
               And I hover over the song "Tears are Falling"
              When I click the "push_pin" button
               And I navigate to the home page
-             Then I expect to see the songs "Tears are Falling" as pinned song
+             Then I expect to see the song "Tears are Falling" as pinned
 
         Scenario: Unpin song
 

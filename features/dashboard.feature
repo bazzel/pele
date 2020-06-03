@@ -1,7 +1,6 @@
 @javascript
 Feature: Dashboard
-
-        Scenario: Show groups and lessons
+        Background:
             Given I have created the following users:
                   | email            | name | role    |
                   | ace@example.org  | Ace  | teacher |
@@ -24,5 +23,16 @@ Feature: Dashboard
                   | Masked   | Cold Gin   |
                   | Unmasked | Lick It Up |
              When I signed in as "gene@example.org"
+
+        Scenario: Show groups and lessons
              Then I expect to see the songs "Firehouse, Cold Gin" in the group "Masked"
              Then I expect to see the songs "Lick It Up" in the group "Unmasked"
+
+        Scenario: Filter pinned songs and lessons
+              And I hover over the song "Firehouse"
+             When I click the "push_pin" button
+             When I switch the pin button on
+             Then I expect to see the song "Firehouse" in the group "Masked"
+              But I expect not to see the song "Cold Gin" in any group
+              And I expect not to see the song "Lick It Up" in any group
+

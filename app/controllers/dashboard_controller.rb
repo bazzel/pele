@@ -8,18 +8,20 @@ class DashboardController < ApplicationController
 
   def index
     @q = current_user.lessons.ransack(params[:q])
-    @lessons = @q.result.left_joins(:pins).includes(:group, song: %i[scores])
-    @lessons = @lessons.merge(@pins) if params[:pinned]
-
-    @lessons_by_group = @lessons.decorate.group_by(&:group)
-
-    @songs =
-      Song.ransack(params[:q]).result.joins(:pins).includes(:scores).merge(
-        @pins
-      ).decorate
+    @lessons_by_group = lessons.decorate.group_by(&:group)
+    @songs = songs.decorate
   end
 
   private
+
+  def lessons
+    lessons = @q.result.left_joins(:pins).includes(:group, song: %i[scores])
+    params[:pinned] ? lessons.merge(@pins) : lessons
+  end
+
+  def songs
+    Song.ransack(params[:q]).result.joins(:pins).includes(:scores).merge(@pins)
+  end
 
   def set_pins
     @pins = current_user.pins

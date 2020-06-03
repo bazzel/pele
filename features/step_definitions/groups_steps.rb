@@ -69,7 +69,7 @@ Then('I expect to see a page for editing the group') do
 end
 
 Then(
-  'I expect to see the songs {string} have been added to the group {string}'
+  'I expect to see the song(s) {string} have been added to the group {string}'
 ) do |songs, group_name|
   step "I expand the panel for \"#{group_name}\""
 
