@@ -29,3 +29,13 @@ $ bin/rails db:setup
 - `$ bin/rails s`
 - `$ bin/webpack-dev-server`
 - Visit your app at [http://localhost:3000](http://localhost:3000).
+
+## Technical details
+
+### Class diagram
+
+![erd.svg](docs/erd.svg)
+
+To update the diagram, run the following command:
+
+`bin/rails erd`

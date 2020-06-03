@@ -2,6 +2,6 @@
 
 FactoryBot.define do
   factory :song do
-    title { Faker::Lorem.sentence }
+    title { Faker::Music.album }
   end
 end

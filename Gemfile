@@ -57,6 +57,7 @@ group :development do
   gem 'html2slim'
   gem 'letter_opener'
   gem 'listen', '~> 3.2'
+  gem 'rails-erd' # Automatically generate an entity-relationship diagram (ERD) for your Rails models.
   gem 'solargraph' # IDE tools for code completion, inline documentation, and static analysis
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'

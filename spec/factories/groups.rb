@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :group do
-    name { 'MyString' }
+    name { Faker::Team.name }
     teacher factory: :user
   end
 end
