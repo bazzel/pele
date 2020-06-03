@@ -5,19 +5,16 @@ class PinsController < ApplicationController
   before_action :set_pin, only: %i[destroy]
 
   def create
-    pin = authorize current_user.pins.build(pin_params)
+    @pin = authorize current_user.pins.build(pin_params).decorate
+    @pin.save!
 
-    pin.save!
-    @song = pin.pinnable.decorate
-    flash.now.notice = t('.notice', title: @song.title)
+    flash.now.notice = t('.notice', title: @pin.song.title)
     render :create_or_destroy
   end
 
   def destroy
-    @song = @pin.pinnable.decorate
-
     @pin.destroy!
-    flash.now.notice = t('.notice', title: @song.title)
+    flash.now.notice = t('.notice', title: @pin.song.title)
     render :create_or_destroy
   end
 
@@ -28,6 +25,6 @@ class PinsController < ApplicationController
   end
 
   def set_pin
-    @pin = authorize Pin.find(params[:id])
+    @pin = authorize Pin.find(params[:id]).decorate
   end
 end

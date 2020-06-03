@@ -1,6 +1,6 @@
-var list            = document.querySelectorAll('[data-model="<%= @song.dom_id(:pin) %>"]')
+var list            = document.querySelectorAll('[data-model="<%= @pin.pinnable.dom_id(:pin) %>"]')
 var restoreEl       = document.createElement('div');
-restoreEl.innerHTML = '<%= j @song.link_to_pin_or_unpin %>';
+restoreEl.innerHTML = '<%= j @pin.pinnable.link_to_pin_or_unpin %>';
 var snackbar        = document.createElement('div');
 
 for (let node of list) {

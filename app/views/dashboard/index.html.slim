@@ -1,12 +1,14 @@
+/ = render partial: 'search', locals: { q: @q }
+
+- if @songs.any?
+  .pinned
+    h1.h5.text-black-50.ml-4.mt-4= t('.pins')
+
+    = render partial: 'songs/songs', object: @songs, layout: 'lessons_layout', locals: { parent: 'groups' }      
+
 #groups
   - @groups.each do |group|
     .group
       h1.h5.text-black-50.ml-4.mt-4= group.name
 
       = render partial: 'lessons', object: group.lessons, layout: 'lessons_layout', locals: { parent: 'groups' }
-
-  - if @songs.any?
-    .pinned
-      h1.h5.text-black-50.ml-4.mt-4= t('.pins')
-
-      = render partial: 'songs/songs', object: @songs, layout: 'lessons_layout', locals: { parent: 'groups' }      

@@ -4,6 +4,7 @@
 class Lesson < ApplicationRecord
   belongs_to :song
   belongs_to :group
+  has_many :pins, as: :pinnable, dependent: :destroy
 
   def song_title
     @song_title ||= song&.title
