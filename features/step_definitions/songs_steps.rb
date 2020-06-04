@@ -14,3 +14,7 @@ end
 Given('I hover over the song {string}') do |song_title|
   step "I hover over the item \"#{song_title}\""
 end
+
+When('I add the songwriter {string}') do |songwriter_name|
+  step "I fill in \"Componist\" with \"#{songwriter_name}\""
+end

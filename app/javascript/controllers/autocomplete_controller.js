@@ -29,16 +29,14 @@ export default class extends Controller {
   }
 
   async _search(input) {
-    // Make `books` a data attribute when we decide
-    // to re-use this controller.
-    const url = `/songs.json?q[title_cont]=${encodeURI(input)}`;
     this.valueTarget.value = "";
 
-    if (input.length < 3) {
+    if (input.length < 2) {
       return [];
     }
-
-    const response = await fetch(url);
+    const response = await fetch(
+      `${this.url}?q[title_cont]=${encodeURI(input)}`
+    );
     return await response.json();
   }
 
@@ -54,5 +52,9 @@ export default class extends Controller {
     }
 
     return `<li ${props}>${text}</li>`;
+  }
+
+  get url() {
+    return `${this.data.get("url")}.json`;
   }
 }

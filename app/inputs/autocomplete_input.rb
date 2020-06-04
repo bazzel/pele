@@ -25,7 +25,13 @@ class AutocompleteInput < StringInput
   end
 
   def input(wrapper_options)
-    template.content_tag(:div, { class: 'autocomplete', data: { controller: data_controller }}) do
+    template.content_tag(
+      :div,
+      {
+        class: 'autocomplete',
+        data: { controller: data_controller, "#{data_controller}-url": url }
+      }
+    ) do
       template.concat super
       template.concat hidden_field
       template.concat autocomplete_result_list
@@ -33,12 +39,18 @@ class AutocompleteInput < StringInput
   end
 
   private
+
   def data_controller
     'autocomplete'
   end
 
+  def url
+    input_html_options[:data].delete(:url)
+  end
+
   def hidden_field
-    @builder.hidden_field @hidden_attribute_name, data: { target: "#{data_controller}.value" }
+    @builder.hidden_field @hidden_attribute_name,
+                          data: { target: "#{data_controller}.value" }
   end
 
   def autocomplete_result_list

@@ -62,6 +62,8 @@ class SongsController < ApplicationController
   def song_params
     params.require(:song).permit(
       :title,
+      :songwriter_id,
+      :songwriter_title,
       scores_attributes: %i[id attachment attachment_cache _destroy]
     )
   end

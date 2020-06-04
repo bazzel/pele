@@ -7,6 +7,7 @@
           = close_icon(tooltipify(t("songs.#{action_name}.cancel", subject: Song.model_name.human.downcase), dismiss: 'modal'))
         .modal-body
           = f.input :title
+          = f.input :songwriter, as: :autocomplete, required: false, input_html: { data: { url: '/songwriters' }}
 
           fieldset(data-controller='nested-form')
             template(data-target='nested-form.template')
