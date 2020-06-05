@@ -7,6 +7,7 @@ class Lesson < ApplicationRecord
   has_many :pins, as: :pinnable, dependent: :destroy
 
   ransack_alias :title, :song_title
+  ransack_alias :title_or_songwriter_name, :song_title_or_song_songwriter_name
 
   scope :pinned_by, ->(user) { merge(user.pins) }
 
