@@ -3,7 +3,14 @@
     .media-body
       .row.collapsed-show.align-items-center
         - # Keep 1 column for action buttons
-        .col-3.text-truncate= lesson.song.title
+        .col-3
+          .d-flex
+            .text-truncate= lesson.song.title
+            - if lesson.song.songwriter
+              .text-black-50.text-truncate<
+                | -
+                =< lesson.song.songwriter.name
+
         .col-8
           - lesson.song.scores.each do |score|
             .badge.badge-pill.badge-light.border.py-1.mr-2

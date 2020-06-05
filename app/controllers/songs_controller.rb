@@ -8,7 +8,8 @@ class SongsController < ApplicationController
 
   def index
     @q = Song.ransack(params[:q])
-    @songs = @q.result.kept.includes(:scores).order(:title).decorate
+    @songs =
+      @q.result.kept.includes(:scores, :songwriter).order(:title).decorate
   end
 
   def new
