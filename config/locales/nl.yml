@@ -52,7 +52,7 @@ nl:
     index:
       pins: "Vastgezette liedjes"
     search:
-      query: "Zoek een lied"
+      query: "Zoek een lied, artiest of componist"
   sessions:
     new:
       title: "Aanmelden bij %{app_name}"
@@ -168,6 +168,7 @@ nl:
     placeholders:
       song:
         title: "Titel toevoegen"
+        songwriter_title: "Artiest of componist toevoegen"
       user:
         name: "Naam toevoegen"
         email: "E-mailadres toevoegen"

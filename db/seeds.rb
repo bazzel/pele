@@ -6,8 +6,13 @@ Faker::Config.locale = 'nl'
 Group.destroy_all
 User.destroy_all
 Song.destroy_all
+Songwriter.destroy_all
 
-songs = create_list(:song, 50)
+songwriters = create_list(:songwriter, 25)
+songs =
+  50.times.reduce([]) do |arr, _i|
+    arr << create(:song, songwriter: songwriters.sample)
+  end
 students = create_list(:user, 50, :student)
 student = create(:user, :student, email: 'student@mail.com', name: nil)
 teachers = create_list(:user, 5, :teacher)
