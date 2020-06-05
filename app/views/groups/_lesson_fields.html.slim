@@ -1,6 +1,6 @@
 .nested-fields.form-row.mb-3(data-new-record="#{f.object.new_record?}")
   .col-10
-    = f.input :song, as: :autocomplete, required: false, input_html: { data: { url: '/songs' }}, wrapper_html: { class: 'mb-0' }
+    = f.input :song, as: :autocomplete, required: false, input_html: { data: { field: 'title_cont', url: '/songs' }}, wrapper_html: { class: 'mb-0' }
   .col.d-flex.justify-content-start.align-items-center
     = link_to '#', class: sm_rnd_btn_class, role: :button, data: { action: 'nested-form#remove_association' } do
       = material_icon('clear', tooltipify(t('helpers.submit.remove_resource', resource: Score.model_name.human.downcase)))

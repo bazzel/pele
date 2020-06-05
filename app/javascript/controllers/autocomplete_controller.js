@@ -30,13 +30,12 @@ export default class extends Controller {
 
   async _search(input) {
     this.valueTarget.value = "";
+    this.input = input;
 
     if (input.length < 2) {
       return [];
     }
-    const response = await fetch(
-      `${this.url}?q[title_cont]=${encodeURI(input)}`
-    );
+    const response = await fetch(`${this.url}?${this.query}`);
     return await response.json();
   }
 
@@ -56,5 +55,9 @@ export default class extends Controller {
 
   get url() {
     return `${this.data.get("url")}.json`;
+  }
+
+  get query() {
+    return `q[${this.data.get("field")}]=${encodeURI(this.input)}`;
   }
 }

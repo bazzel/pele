@@ -22,7 +22,7 @@ class Song < ApplicationRecord
   before_validation :set_songwriter
 
   def songwriter_title
-    @songwriter_title ||= songwriter&.title
+    @songwriter_title ||= songwriter&.name
   end
 
   attr_writer :songwriter_title

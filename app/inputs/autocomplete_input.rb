@@ -29,7 +29,11 @@ class AutocompleteInput < StringInput
       :div,
       {
         class: 'autocomplete',
-        data: { controller: data_controller, "#{data_controller}-url": url }
+        data: {
+          controller: data_controller,
+          "#{data_controller}-url": url,
+          "#{data_controller}-field": field
+        }
       }
     ) do
       template.concat super
@@ -46,6 +50,10 @@ class AutocompleteInput < StringInput
 
   def url
     input_html_options[:data].delete(:url)
+  end
+
+  def field
+    input_html_options[:data].delete(:field)
   end
 
   def hidden_field
