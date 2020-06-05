@@ -47,7 +47,7 @@ export default class extends Controller {
     let text = title;
 
     if (description) {
-      text = `${text} - <span class="text-muted">${description}</span>`;
+      text = `<div>${text}</div><small>${description}</small>`;
     }
 
     return `<li ${props}>${text}</li>`;

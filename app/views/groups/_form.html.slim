@@ -7,7 +7,7 @@
       = f.fields_for :lessons, Lesson.new, child_index: 'NEW_RECORD' do |lesson|
         = render 'groups/lesson_fields', f: lesson
 
-    .form-group.row
+    .form-group.row.mt-3
       legend.col-form-label.col-12.col-md-2= Group.human_attribute_name('lessons')
       .col.col-lg-6.nested-form
         - group.errors[:lessons].each do |msg|
