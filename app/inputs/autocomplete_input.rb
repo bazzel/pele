@@ -27,14 +27,7 @@ class AutocompleteInput < StringInput
   def input(wrapper_options)
     template.content_tag(
       :div,
-      {
-        class: 'autocomplete',
-        data: {
-          controller: data_controller,
-          "#{data_controller}-url": url,
-          "#{data_controller}-field": field
-        }
-      }
+      { class: 'autocomplete' }.merge(stimulus_options)
     ) do
       template.concat super
       template.concat hidden_field
@@ -46,6 +39,16 @@ class AutocompleteInput < StringInput
 
   def data_controller
     'autocomplete'
+  end
+
+  def stimulus_options
+    {
+      data: {
+        controller: data_controller,
+        "#{data_controller}-url": url,
+        "#{data_controller}-field": field
+      }
+    }
   end
 
   def url

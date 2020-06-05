@@ -5,11 +5,7 @@
         - # Keep 1 column for action buttons
         .col-3
           .d-flex
-            .text-truncate= song.title
-            - if song.songwriter
-              .text-black-50.text-truncate<
-                | -
-                =< song.songwriter.name
+            = song.title_and_songwriter
         .col-8
           - song.scores.each do |score|
             .badge.badge-pill.badge-light.border.py-1.mr-2

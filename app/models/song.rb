@@ -21,6 +21,8 @@ class Song < ApplicationRecord
 
   before_validation :set_songwriter
 
+  delegate :name, to: :songwriter, prefix: true, allow_nil: true
+
   def songwriter_title
     @songwriter_title ||= songwriter&.name
   end

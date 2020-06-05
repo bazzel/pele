@@ -23,6 +23,16 @@ class SongDecorator < ApplicationDecorator
       I18n.t('songs.new.title', subject: self.class.model_name.human.downcase)
   end
 
+  def title_and_songwriter
+    content = h.tag.div(title, class: 'text-truncate')
+
+    if songwriter
+      content <<
+        h.tag.div(" - #{songwriter_name}", class: 'text-black-50 text-truncate')
+    end
+    content
+  end
+
   def link_to_edit
     return unless h.policy(object).edit?
 
