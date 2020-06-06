@@ -1,6 +1,6 @@
 = simple_form_for(group, html: { autocomplete: 'off' }) do |f|
   = f.input :name, autofocus: true
-  = f.input :student_ids, input_html: { value: group.students.map(&:tagify_value).to_json, data: { controller: 'chip-input', chip_input_whitelist: User.student.decorate.map(&:tagify_whitelist) }}
+  = f.input :student_ids, input_html: { value: group.students.map(&:tagify_value).to_json, data: { controller: 'chip-input', chip_input_whitelist: User.student.decorate.map(&:tagify_whitelist), chip_input_enforce_whitelist: true }}
 
   fieldset(data-controller='nested-form')
     template(data-target='nested-form.template')

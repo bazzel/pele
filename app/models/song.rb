@@ -23,11 +23,20 @@ class Song < ApplicationRecord
 
   delegate :name, to: :songwriter, prefix: true, allow_nil: true
 
+  acts_as_taggable
+
   def songwriter_title
     @songwriter_title ||= songwriter&.name
   end
 
   attr_writer :songwriter_title
+
+  def tag_list=(value)
+    arr = parse_tagify_json(value)
+    super(arr)
+  rescue StandardError
+    super
+  end
 
   private
 
@@ -35,5 +44,9 @@ class Song < ApplicationRecord
     return if songwriter_title.blank?
 
     self.songwriter = Songwriter.find_or_create_by(name: songwriter_title)
+  end
+
+  def parse_tagify_json(value)
+    JSON.parse(value).map { |h| h['value'] }
   end
 end

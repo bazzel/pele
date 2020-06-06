@@ -65,6 +65,7 @@ class SongsController < ApplicationController
       :title,
       :songwriter_id,
       :songwriter_title,
+      :tag_list,
       scores_attributes: %i[id attachment attachment_cache _destroy]
     )
   end
