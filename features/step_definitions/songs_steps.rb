@@ -18,3 +18,15 @@ end
 When('I add the songwriter {string}') do |songwriter_name|
   step "I fill in \"Componist\" with \"#{songwriter_name}\""
 end
+
+When('I add the tags {string}') do |text|
+  tags = text.split(/\s*,\s*/)
+
+  tags.each do |tag|
+    within('form .song_tag_list') do
+      el = find('.tagify__input')
+      el.set("#{tag}\n")
+      el.send_keys(:enter)
+    end
+  end
+end

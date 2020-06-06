@@ -16,5 +16,6 @@ Feature: Create song
             Given I am adding a new song
              When I fill in "Titel" with "A good song"
               And I add the songwriter "S. Writer"
+              And I add the tags "blues, rock"
               And I click "Opslaan"
              Then I expect to see 1 song
