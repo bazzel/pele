@@ -34,7 +34,7 @@ $ bin/rails db:setup
 
 The project comes with a `seed.rb` which you can use to populate your development environment:
 
-`bin/rails db:seed`
+`$ bin/rails db:seed`
 
 ## Technical details
 
