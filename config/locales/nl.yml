@@ -48,11 +48,12 @@ nl:
 
   # pages:
   #
+  application:
+    search:
+      query: "Zoek een lied, artiest of componist"
   dashboard:
     index:
       pins: "Vastgezette liedjes"
-    search:
-      query: "Zoek een lied, artiest of componist"
   sessions:
     new:
       title: "Aanmelden bij %{app_name}"
