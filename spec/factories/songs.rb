@@ -6,6 +6,7 @@ FactoryBot.define do
 
     title { Faker::Music::PearlJam.song }
     songwriter
+    tag_list { [Faker::Music.instrument, Faker::Music.genre] }
 
     after(:create) do |song, evaluator|
       create_list(:score, evaluator.scores_count, song: song)

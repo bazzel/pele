@@ -10,7 +10,7 @@ Songwriter.destroy_all
 
 songwriters = create_list(:songwriter, 25)
 songs =
-  50.times.reduce([]) do |arr, _i|
+  200.times.reduce([]) do |arr, _i|
     arr << create(:song, songwriter: songwriters.sample)
   end
 students = create_list(:user, 50, :student)
