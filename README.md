@@ -44,7 +44,7 @@ The project comes with a `seed.rb` which you can use to populate your developmen
 
 To update the diagram, run the following command:
 
-`bin/rails erd`
+`$ bin/rails erd`
 
 ### S3
 
