@@ -30,6 +30,12 @@ $ bin/rails db:setup
 - `$ bin/webpack-dev-server`
 - Visit your app at [http://localhost:3000](http://localhost:3000).
 
+### Populate the database
+
+The project comes with a `seed.rb` which you can use to populate your development environment:
+
+`bin/rails db:seed`
+
 ## Technical details
 
 ### Class diagram
@@ -39,3 +45,12 @@ $ bin/rails db:setup
 To update the diagram, run the following command:
 
 `bin/rails erd`
+
+### S3
+
+In [some environments](config/initializers/carrierwave.rb) images are uploaded to an S3 bucket using [CarrierWave](https://github.com/carrierwaveuploader/carrierwave). If you want to use this feature, make sure you have an S3 bucket created and add the required keys to the corresponding ENV variables:
+
+- `AWS_ACCESS_KEY_ID`
+- `AWS_SECRET_ACCESS_KEY`
+- `AWS_REGION`
+- `AWS_BUCKET_NAME`
