@@ -40,22 +40,14 @@ RSpec.describe SongDecorator do
       let(:song) { create(:song, tag_list: 'lorem, ipsum') }
 
       it do
-        is_expected.to have_css('small.mr-2 span.badge.badge-light', count: 2)
-      end
-
-      it do
-        is_expected.to have_css(
+        expect(formatted_tag_list).to have_css(
           'small.mr-2 span.badge.badge-light',
-          text: 'lorem'
+          count: 2
         )
       end
 
-      it do
-        is_expected.to have_css(
-          'small.mr-2 span.badge.badge-light',
-          text: 'ipsum'
-        )
-      end
+      it { is_expected.to have_css('.badge', text: 'lorem') }
+      it { is_expected.to have_css('.badge', text: 'ipsum') }
     end
   end
 end
