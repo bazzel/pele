@@ -7,6 +7,7 @@
           .d-flex
             = song.title_and_songwriter
         .col-8
+          = song.formatted_tag_list
           - song.scores.each do |score|
             .badge.badge-pill.badge-light.border.py-1.mr-2
               = link_to(score.attachment.url, class: 'text-dark small text-truncate', target: '_blank', data: { toggle: 'no-collapse' }) do

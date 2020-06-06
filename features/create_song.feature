@@ -19,3 +19,4 @@ Feature: Create song
               And I add the tags "blues, rock"
               And I click "Opslaan"
              Then I expect to see 1 song
+              And I expect to see the tags "blues, rock" for the song "A good song"

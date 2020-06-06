@@ -30,3 +30,13 @@ When('I add the tags {string}') do |text|
     end
   end
 end
+
+Then(
+  'I expect to see the tags {string} for the song {string}'
+) do |text, song_title|
+  tags = text.split(/\s*,\s*/)
+
+  within('.list-group-item', text: song_title) do
+    tags.each { |tag| expect(page).to have_content(tag) }
+  end
+end

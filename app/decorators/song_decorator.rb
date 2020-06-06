@@ -55,6 +55,14 @@ class SongDecorator < ApplicationDecorator
     link_to_pin || link_to_unpin
   end
 
+  def formatted_tag_list
+    h.safe_join(
+      tag_list.map do |tag|
+        h.tag.small(h.tag.span(tag, class: 'badge badge-light'), class: 'mr-2')
+      end
+    )
+  end
+
   private
 
   def link_to_pin

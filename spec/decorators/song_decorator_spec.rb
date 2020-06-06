@@ -33,5 +33,29 @@ RSpec.describe SongDecorator do
 
       it { is_expected.to have_css('.text-truncate', count: 2) }
     end
+
+    describe '#formatted_tag_list' do
+      subject(:formatted_tag_list) { decorator.formatted_tag_list }
+
+      let(:song) { create(:song, tag_list: 'lorem, ipsum') }
+
+      it do
+        is_expected.to have_css('small.mr-2 span.badge.badge-light', count: 2)
+      end
+
+      it do
+        is_expected.to have_css(
+          'small.mr-2 span.badge.badge-light',
+          text: 'lorem'
+        )
+      end
+
+      it do
+        is_expected.to have_css(
+          'small.mr-2 span.badge.badge-light',
+          text: 'ipsum'
+        )
+      end
+    end
   end
 end
