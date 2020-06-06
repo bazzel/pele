@@ -1,0 +1,13 @@
+.results
+  - if songs.any?
+    .pinned
+      h1.h5.text-black-50.ml-4.mt-4= t('.pins')
+
+      = render partial: 'songs/songs', object: @songs, layout: 'lessons_layout', locals: { parent: 'groups' }      
+
+  #groups
+    - lessons_by_group.each do |group, lessons|
+      .group
+        h1.h5.text-black-50.ml-4.mt-4= group.name
+
+        = render partial: 'lessons', object: lessons, layout: 'lessons_layout', locals: { parent: 'groups' }

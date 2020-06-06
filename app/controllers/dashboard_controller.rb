@@ -17,13 +17,17 @@ class DashboardController < ApplicationController
   end
 
   def lessons
-    lessons = @q.result.left_joins(:pins).includes(:group, song: %i[scores])
+    lessons =
+      @q.result.left_joins(:pins).includes(
+        :group,
+        song: %i[scores songwriter taggings]
+      )
     params[:pinned] ? lessons.pinned_by(current_user) : lessons
   end
 
   def set_songs
     @songs =
-      Song.ransack(params[:q]).result.includes(:scores).pinned_by(current_user)
-        .decorate
+      Song.ransack(params[:q]).result.includes(:scores, :songwriter, :taggings)
+        .pinned_by(current_user).decorate
   end
 end

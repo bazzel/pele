@@ -1,5 +1,6 @@
 import _ from "lodash";
 import { Controller } from "stimulus";
+import Rails from "@rails/ujs";
 
 export default class extends Controller {
   static targets = ["form", "query"];
@@ -11,7 +12,7 @@ export default class extends Controller {
 
   _perform(event) {
     event.preventDefault();
-    this.formTarget.submit();
+    Rails.fire(this.formTarget, "submit");
   }
 
   moveCursorToEnd(el) {
