@@ -11,3 +11,6 @@
             = check_box_tag :pinned, true, params[:pinned], { class: 'custom-control-input', data: { target: 'search.isPinned', action: 'change->search#perform' } }
             span.custom-control-track
             = label_tag :pinned, '', class: 'custom-control-label claim-toggle'
+
+      .d-flex.justify-content-end
+        .form-group= render(Search::Filter::TagsComponent.new(q: @q, builder: f))

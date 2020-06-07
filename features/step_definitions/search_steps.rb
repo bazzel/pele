@@ -7,3 +7,16 @@ When('I switch the pin button on') do
 
   page.execute_script(script)
 end
+
+When('I search for songs tagged with {string}') do |text|
+  tags = text.split(/\s*,\s*/)
+  click_on('Tags')
+
+  tags.each { |tag| within('.tags') { find('label', text: tag).click } }
+end
+
+Then('I see the search form displaying {string}') do |text|
+  within('.search-form form') do
+    expect(page).to have_css('.filter-button', text: /#{text}/i)
+  end
+end

@@ -33,6 +33,7 @@ nl:
       song:
         title: "Titel"
         scores: "Bladmuziek"
+        tag_list: "Tags"
       user:
         name: "Naam"
       group:
@@ -54,6 +55,10 @@ nl:
   dashboard:
     index:
       pins: "Vastgezette liedjes"
+  search:
+    filter:
+      tags_component:
+        select_all: "Alle tags selecteren"
   sessions:
     new:
       title: "Aanmelden bij %{app_name}"
@@ -138,6 +143,7 @@ nl:
       notice: "Lied '%{title}' staat niet meer vast."
   #
   # End pages.
+
   simple_form:
     "yes": "Ja"
     "no": "Nee"

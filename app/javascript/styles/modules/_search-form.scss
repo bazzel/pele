@@ -1,0 +1,16 @@
+.search-form {
+  border-radius: 8px;
+
+  .action-buttons {
+    transform: translateY(50%);
+  }
+
+  .dropdown-menu {
+    z-index: 1;
+  }
+
+  .tags {
+    max-height: 20rem;
+    overflow-y: auto;
+  }
+}
