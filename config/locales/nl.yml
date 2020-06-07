@@ -117,7 +117,7 @@ nl:
   groups:
     new:
       title: "Een nieuwe %{subject} toevoegen"
-      cancel: &cancel_group_creation "Maken van %{subject} annuleren"
+      cancel: &cancel_group_creation "Maken van groep annuleren"
     edit:
       title: "Groep bewerken"
       cancel: &cancel_group_edit "Groepwijzigingen annuleren"
