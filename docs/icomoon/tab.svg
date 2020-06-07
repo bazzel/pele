@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   viewBox="0 0 1000 1000"
+   id="svg1466"
+   version="1.1"
+   width="1000"
+   height="1000">
+  <defs
+     id="defs4" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     style="display:inline"
+     id="layer1" />
+  <g
+     style="display:inline"
+     id="layer2">
+    <g
+       style="font-style:normal;font-weight:normal;font-size:449.6px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:11.24"
+       id="text2098"
+       aria-label="5">
+      <path
+         d="m 592.4461,345.11483 v 51.80937 h -97.25234 v 66.07891 l 5.70781,-0.43906 h 4.61016 q 28.1,0 50.93125,12.29375 22.83125,12.07422 35.56406,34.02734 12.95234,21.95313 12.95234,49.39453 0,43.24766 -29.19765,70.46954 -28.97813,27.00234 -76.39688,27.00234 -42.15,0 -74.64062,-17.34297 v -51.37031 q 34.24687,21.075 65.63984,21.075 24.5875,0 41.05234,-13.61094 16.46485,-13.83047 16.46485,-34.90547 0,-23.70937 -18.87969,-36.88125 -18.87969,-13.39141 -51.37031,-13.39141 -15.36719,0 -34.02735,3.95157 V 345.11483 Z M 266,486.5 h 120 v 43 H 266 Z m 0,217.5 h 516 v 43 H 266 Z m 0,-433 h 516 v 43 H 266 Z m 396,215.5 h 120 v 43 H 662 Z"
+         style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:449.6px;font-family:'Gill Sans';-inkscape-font-specification:'Gill Sans Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:11.24"
+         id="path2116" />
+    </g>
+  </g>
+</svg>
