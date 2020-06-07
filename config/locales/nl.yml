@@ -33,7 +33,7 @@ nl:
       song:
         title: "Titel"
         scores: "Bladmuziek"
-        tag_list: "Tags"
+        tag_list: "Labels"
       user:
         name: "Naam"
       group:
@@ -58,7 +58,7 @@ nl:
   search:
     filter:
       tags_component:
-        select_all: "Alle tags selecteren"
+        select_all: "Alle labels selecteren"
   sessions:
     new:
       title: "Aanmelden bij %{app_name}"
@@ -150,32 +150,16 @@ nl:
     required:
       text: "verplicht"
       mark: "*"
-      # You can uncomment the line below if you need to overwrite the whole required html.
-      # When using html, text and mark won't be used.
-      # html: '<abbr title="required">*</abbr>'
-    # Examples
-    # labels:
-    #   defaults:
-    #     password: 'Password'
-    #   user:
-    #     new:
-    #       email: 'E-mail to sign in.'
-    #     edit:
-    #       email: 'E-mail.'
-    # hints:
-    #   defaults:
-    #     username: 'User name to sign in.'
-    #     password: 'No special characters, please.'
-    # include_blanks:
-    #   defaults:
-    #     age: 'Rather not say'
-    # prompts:
-    #   defaults:
-    #     age: 'Select your age'
     placeholders:
+      group:
+        name: "Groepsnaam toevoegen"
+        student_ids: "Leerlingen toevoegen"
+        lessons:
+          song_title: "Lied toevoegen"
       song:
         title: "Titel toevoegen"
         songwriter_title: "Artiest of componist toevoegen"
+        tag_list: "Labels toevoegen"
       user:
         name: "Naam toevoegen"
         email: "E-mailadres toevoegen"
