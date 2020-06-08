@@ -31,6 +31,19 @@ When('I add the tags {string}') do |text|
   end
 end
 
+Then('I expect to see a page for adding a new song') do
+  expect(current_path).to eql('/songs/new')
+  expect(page).to have_content('Een nieuw lied toevoegen')
+
+  within('form') { expect(page).to have_button('Opslaan') }
+end
+
+Then('I expect to see a page for editing the song') do
+  expect(current_path).to match(%r{/songs/.*/edit})
+
+  within('form') { expect(page).to have_button('Opslaan') }
+end
+
 Then(
   'I expect to see the tags {string} for the song {string}'
 ) do |text, song_title|

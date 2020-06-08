@@ -1,0 +1,4 @@
+- content_for :header do
+  h1.card-title.mb-1= @song.title_was
+
+= render partial: 'form', object: @song, as: :song, layout: 'form_layout'

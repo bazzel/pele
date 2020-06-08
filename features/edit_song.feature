@@ -13,7 +13,7 @@ Feature: Edit a song
               And I navigate to the songs page
               And I hover over the song "A good song"
              When I click the "create" button
-             Then I expect to see a modal with "A good song" as title
+             Then I expect to see a page for editing the song
              When I fill in "Titel" with "A very good song"
               And I click "Opslaan"
              Then I expect to see 1 song

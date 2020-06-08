@@ -15,7 +15,7 @@ class SongDecorator < ApplicationDecorator
   def self.floating_action_button
     return unless SongPolicy.new(h.current_user, self.class).new?
 
-    h.fab_wrapper { h.fab_button(h.new_song_path, remote: true) }
+    h.fab_wrapper { h.fab_button(h.new_song_path) }
   end
 
   def form_title
@@ -102,7 +102,7 @@ class SongDecorator < ApplicationDecorator
 
   def link_to_edit_options
     tooltip = h.tooltipify(I18n.t('songs.edit.title'))
-    default_html_options.merge(tooltip)
+    default_html_options(nil, false).merge(tooltip)
   end
 
   def link_to_destroy_options

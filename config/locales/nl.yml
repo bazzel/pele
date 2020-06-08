@@ -79,7 +79,7 @@ nl:
   songs:
     new:
       title: "Een nieuw %{subject} toevoegen"
-      cancel: &cancel_song_creation "Maken van %{subject} annuleren"
+      cancel: &cancel_song_creation "Maken van lied annuleren"
     edit:
       title: "Lied bewerken"
       cancel: &cancel_song_edit "Liedwijzigingen annuleren"

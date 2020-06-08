@@ -9,7 +9,7 @@ Feature: Create song
         Scenario: Add first song
             Given I navigate to the songs page
              When I click the "add" button
-             Then I expect to see a modal for adding a new song
+             Then I expect to see a page for adding a new song
 
         Scenario: Create a song
             Given I am adding a new song

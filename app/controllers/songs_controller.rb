@@ -64,18 +64,6 @@ class SongsController < ApplicationController
   end
 
   def song_params
-    params.require(:song).permit(
-      :title,
-      :songwriter_id,
-      :songwriter_title,
-      :tag_list,
-      scores_attributes: %i[
-        id
-        attachment
-        attachment_cache
-        tablature_notation
-        _destroy
-      ]
-    )
+    permitted_attributes(Song)
   end
 end

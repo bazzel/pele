@@ -10,7 +10,7 @@ end
 
 When('I search for songs tagged with {string}') do |text|
   tags = text.split(/\s*,\s*/)
-  click_on('Tags')
+  click_on('Labels')
 
   tags.each { |tag| within('.tags') { find('label', text: tag).click } }
 end

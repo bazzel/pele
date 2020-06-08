@@ -1,33 +1,24 @@
-.modal.fade(id=modal_id data={ controller: 'modal' } aria={ hidden: true, labelledby: modal_id } role='dialog' tabindex=-1)
-  .modal-dialog.modal-dialog-centered(role='document')
-    .modal-content
-      = simple_form_for(song, remote: true, html: { autocomplete: 'off' }) do |f|
-        .modal-header
-          h5.modal-title= song.form_title
-          = close_icon(tooltipify(t("songs.#{action_name}.cancel", subject: Song.model_name.human.downcase), dismiss: 'modal'))
-        .modal-body
-          = f.input :title
-          = f.input :songwriter, as: :autocomplete, required: false, input_html: { data: { field: 'name_cont', url: '/songwriters' }}
+= simple_form_for(song, html: { autocomplete: 'off' }) do |f|
+  = f.input :title, autofocus: true
+  = f.input :songwriter, as: :autocomplete, required: false, input_html: { data: { field: 'name_cont', url: '/songwriters' }}
 
-          fieldset(data-controller='nested-form')
-            template(data-target='nested-form.template')
-              = f.fields_for :scores, Score.new, child_index: 'NEW_RECORD' do |score|
-                = render 'songs/score_fields', f: score
+  fieldset(data-controller='nested-form')
+    template(data-target='nested-form.template')
+      = f.fields_for :scores, Score.new, child_index: 'NEW_RECORD' do |score|
+        = render 'songs/score_fields', f: score
 
-            .form-group.row.mt-3
-              legend.col-form-label.col-2= Song.human_attribute_name('scores')
-              .col.nested-form
-                - song.errors[:scores].each do |msg|
-                  p.text-danger.mt-2= msg
+    .form-group.row.mt-3
+      legend.col-form-label.col-2= Song.human_attribute_name('scores')
+      .col.nested-form
+        - song.errors[:scores].each do |msg|
+          p.text-danger.mt-2= msg
 
-                = f.fields_for :scores, song.scores do |score|
-                  = render 'score_fields', f: score
+        = f.fields_for :scores, song.scores do |score|
+          = render 'score_fields', f: score
 
-                div(data-target='nested-form.links')
-                  = link_to t('.add_score'), "#", class: 'btn btn-outline', role: :button, data: { action: 'nested-form#add_association' }
-            
-            = f.input :tag_list, input_html: { value: song.tag_list.to_json, data: { controller: 'chip-input', chip_input_whitelist: Song.tags_on(:tags).map { |t| { value: t.name }} }}
+        div(data-target='nested-form.links')
+          = link_to t('.add_score'), "#", class: 'btn btn-outline', role: :button, data: { action: 'nested-form#add_association' }
+    
+    = f.input :tag_list, input_html: { value: song.tag_list.to_json, data: { controller: 'chip-input', chip_input_whitelist: Song.tags_on(:tags).map { |t| { value: t.name }} }}
 
-        .modal-footer
-          = link_to t('helpers.submit.cancel'), '#', class: 'btn', role: :button, data: { dismiss: 'modal' }
-          = f.button :submit, class: 'btn btn-outline-primary', data: { target: "##{modal_id}", toggle: 'modal' }
+  = f.button :submit, class: 'btn btn-outline-primary'
