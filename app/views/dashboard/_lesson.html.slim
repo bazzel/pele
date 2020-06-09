@@ -10,10 +10,7 @@
         .col-8
           = lesson.song.formatted_tag_list
           - lesson.song.scores.each do |score|
-            .badge.badge-pill.badge-light.border.py-1.mr-2
-              = link_to(score.attachment.url, class: 'text-dark small text-truncate', target: '_blank', data: { toggle: 'no-collapse' }) do
-                small= material_icon('attach_file')
-                = score.attachment.identifier
+            = score.attachment_badge
 
       .row.collapsed-hide
         .col-11
