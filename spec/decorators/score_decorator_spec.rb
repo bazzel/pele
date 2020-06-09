@@ -46,7 +46,7 @@ RSpec.describe ScoreDecorator do
 
       it do
         expect(attachment_badge).to have_css(
-          '.badge a span.pele-icons',
+          '.badge a span.pele-icons[data-toggle="tooltip"][title="standaard notatie"]',
           text: 'standard'
         )
       end
@@ -59,7 +59,7 @@ RSpec.describe ScoreDecorator do
 
       it do
         expect(attachment_badge).to have_css(
-          '.badge a span.pele-icons',
+          '.badge a span.pele-icons[data-toggle="tooltip"][title="akkoorden"]',
           text: 'chords'
         )
       end
@@ -73,14 +73,14 @@ RSpec.describe ScoreDecorator do
 
       it do
         expect(attachment_badge).to have_css(
-          '.badge a span.pele-icons',
+          '.badge a span.pele-icons[data-toggle="tooltip"][title="tabulatuur"]',
           text: 'tablature'
         )
       end
 
       it do
         expect(attachment_badge).to have_css(
-          '.badge a span.pele-icons',
+          '.badge a span.pele-icons[data-toggle="tooltip"][title="akkoorden"]',
           text: 'chords'
         )
       end

@@ -40,6 +40,11 @@ nl:
         name: "Naam"
         student_ids: "Leerlingen"
         lessons: "Lessen"
+      score:
+        tablature_notation: &tablature_notation "tabulatuur"
+        standard_notation: &standard_notation "standaard notatie"
+        chord_notation: &chord_notation "akkoorden"
+
     errors:
       models:
         user:
@@ -52,9 +57,9 @@ nl:
   application:
     search:
       query: "Zoek een lied, artiest of componist"
-      tablature_notation: &tablature_notation "tabulatuur"
-      standard_notation: &standard_notation "standaard notatie"
-      chord_notation: &chord_notation "akkoorden"
+      tablature_notation: *tablature_notation
+      standard_notation: *standard_notation
+      chord_notation: *chord_notation
 
   dashboard:
     index:

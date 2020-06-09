@@ -49,19 +49,37 @@ class ScoreDecorator < ApplicationDecorator
   def tablature_notation_icon
     return unless tablature_notation?
 
-    h.content_tag(:span, 'tablature', class: 'pele-icons') + ' '
+    h.content_tag(
+      :span,
+      'tablature',
+      h.tooltipify(Score.human_attribute_name('tablature_notation')).merge(
+        class: 'pele-icons'
+      )
+    ) + ' '
   end
 
   def standard_notation_icon
     return unless standard_notation?
 
-    h.content_tag(:span, 'standard', class: 'pele-icons') + ' '
+    h.content_tag(
+      :span,
+      'standard',
+      h.tooltipify(Score.human_attribute_name('standard_notation')).merge(
+        class: 'pele-icons'
+      )
+    ) + ' '
   end
 
   def chord_notation_icon
     return unless chord_notation?
 
-    h.content_tag(:span, 'chords', class: 'pele-icons') + ' '
+    h.content_tag(
+      :span,
+      'chords',
+      h.tooltipify(Score.human_attribute_name('chord_notation')).merge(
+        class: 'pele-icons'
+      )
+    ) + ' '
   end
 
   def attachment_icon
