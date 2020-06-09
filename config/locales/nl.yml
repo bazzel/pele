@@ -52,6 +52,10 @@ nl:
   application:
     search:
       query: "Zoek een lied, artiest of componist"
+      tablature_notation: &tablature_notation "tabulatuur"
+      standard_notation: &standard_notation "standaard notatie"
+      chord_notation: &chord_notation "akkoorden"
+
   dashboard:
     index:
       pins: "Vastgezette liedjes"
@@ -167,9 +171,9 @@ nl:
         songwriter_title: "Artiest of componist toevoegen"
         tag_list: "Labels toevoegen"
         scores:
-          tablature_notation: "tabulatuur"
-          standard_notation: "standaard notatie"
-          chord_notation: "akkoorden"
+          tablature_notation: *tablature_notation
+          standard_notation: *standard_notation
+          chord_notation: *chord_notation
       user:
         name: "Naam toevoegen"
         email: "E-mailadres toevoegen"

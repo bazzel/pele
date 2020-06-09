@@ -14,14 +14,14 @@
 
       .d-flex.justify-content-end.align-items-center.form-group
         .btn-group.btn-group-fluid.border(data-toggle="buttons" role="group" data={ action: 'click->search#perform' })
-          = tag.label class: 'btn btn-outline btn-sm active'
+          .btn.btn-outline.btn-sm(*tooltipify(t('.tablature_notation')))
             = f.check_box :scores_tablature_notation_true, include_hidden: false
-            span.pele-icons tablature
-          = tag.label class: 'btn btn-outline btn-sm active'
+            = f.label :scores_tablature_notation_true, 'tablature', class: 'pele-icons'
+          .btn.btn-outline.btn-sm(*tooltipify(t('.standard_notation')))
             = f.check_box :scores_standard_notation_true, include_hidden: false
-            span.pele-icons standard
-          = tag.label class: 'btn btn-outline btn-sm active'
+            = f.label :scores_standard_notation_true, 'standard', class: 'pele-icons'
+          .btn.btn-outline.btn-sm(*tooltipify(t('.chord_notation')))
             = f.check_box :scores_chord_notation_true, include_hidden: false
-            span.pele-icons chords
+            = f.label :scores_chord_notation_true, 'chords', class: 'pele-icons'
 
         = render(Search::Filter::TagsComponent.new(q: @q, builder: f))
