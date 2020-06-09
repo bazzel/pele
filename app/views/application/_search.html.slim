@@ -13,7 +13,7 @@
             = label_tag :pinned, '', class: 'custom-control-label claim-toggle'
 
       .d-flex.justify-content-end.align-items-center.form-group
-        .btn-group(data-toggle="buttons" role="group" data={ action: 'click->search#perform' })
+        .btn-group.btn-group-fluid.border(data-toggle="buttons" role="group" data={ action: 'click->search#perform' })
           = tag.label class: 'btn btn-outline btn-sm active'
             = f.check_box :scores_tablature_notation_true, include_hidden: false
             span.pele-icons tablature
