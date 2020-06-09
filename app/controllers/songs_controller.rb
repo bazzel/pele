@@ -8,8 +8,7 @@ class SongsController < ApplicationController
 
   def index
     @q = Song.ransack(params[:q])
-    @songs =
-      @q.result.kept.includes(:scores, :songwriter, :taggings).order(:title)
+    @songs = @q.result.kept.includes(:scores, :songwriter).order(:title)
 
     @songs = @songs.pinned_by(current_user) if params[:pinned]
     @songs = @songs.decorate
