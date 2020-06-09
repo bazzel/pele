@@ -38,6 +38,14 @@ class SongPolicy < ApplicationPolicy
   private
 
   def scores_attributes
-    %i[id attachment attachment_cache tablature_notation _destroy]
+    %i[
+      id
+      attachment
+      attachment_cache
+      tablature_notation
+      standard_notation
+      chord_notation
+      _destroy
+    ]
   end
 end

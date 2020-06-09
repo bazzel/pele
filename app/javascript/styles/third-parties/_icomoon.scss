@@ -1,6 +1,9 @@
 @import "icomoon/style";
 
-.pele-icons {
-  width: 1.4rem;
-  display: inline-block;
+.btn {
+  .pele-icons {
+    width: 1.4rem;
+    display: inline-block;
+    line-height: 1.6;
+  }
 }

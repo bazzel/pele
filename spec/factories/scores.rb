@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :score do
-    song { nil }
+    song
     attachment do
       Rack::Test::UploadedFile.new(
         Rails.root.join('spec/files/score.pdf'),

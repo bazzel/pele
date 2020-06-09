@@ -1,5 +1,5 @@
 .nested-fields.form-row.mb-3(data-new-record="#{f.object.new_record?}")
-  .col-10
+  .col-8
     - if f.object.new_record?
       div(data={ controller: 'custom-file' })= f.input :attachment, label: f.object.attachment.identifier, input_html: { data: { action: 'custom-file#handleFile'}}
       = f.hidden_field :attachment_cache
@@ -7,11 +7,11 @@
       .custom-file
         .custom-file-label= f.object.attachment.identifier
 
-  / .col-4
-  /   .btn-group.btn-group-fluid(data-toggle="buttons" role="group")
-  /     label.btn.btn-outline.btn-sm(class=("active" if f.object.tablature_notation))
-  /       = f.input_field :tablature_notation
-  /       i.pele-icons tablature
+  .col-3.d-flex.justify-content-center
+    .btn-group.btn-group-fluid(data-toggle="buttons" role="group")
+      = f.input :tablature_notation, as: :toggle_buttons_checkbox
+      = f.input :standard_notation, as: :toggle_buttons_checkbox
+      = f.input :chord_notation, as: :toggle_buttons_checkbox
 
   .col.d-flex.justify-content-end.align-items-center
     = link_to '#', class: sm_rnd_btn_class, role: :button, data: { action: 'nested-form#remove_association' } do

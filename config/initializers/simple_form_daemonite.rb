@@ -105,8 +105,23 @@ SimpleForm.setup do |config|
     b.use :hint, wrap_with: { tag: 'small', class: 'form-text text-muted' }
   end
 
+  config.wrappers(
+    :toggle_buttons_checkbox,
+    tag: :label, class: 'btn btn-outline btn-sm'
+  ) do |b|
+    b.use :html5
+    # b.use :placeholder
+    b.use :input
+    b.wrapper tag: :i, class: 'pele-icons' do |ba|
+      ba.use :label_text
+    end
+  end
+
   # The default wrapper to be used by the FormBuilder.
   config.default_wrapper = :vertical_form_w_text_field_boxes
 
-  config.wrapper_mappings = { file: :material_file_input }
+  config.wrapper_mappings = {
+    file: :material_file_input,
+    toggle_buttons_checkbox: :toggle_buttons_checkbox
+  }
 end

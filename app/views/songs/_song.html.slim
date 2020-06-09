@@ -1,4 +1,4 @@
-.expansion-panel.list-group-item.stretchable(id=song.dom_id class=(local_assigns[:show] && 'show') data={ controller: 'expansion-panel', action: 'click->expansion-panel#toggle', target: "##{song.dom_id(:collapse)}" })
+ .expansion-panel.list-group-item.stretchable(id=song.dom_id class=(local_assigns[:show] && 'show') data={ controller: 'expansion-panel', action: 'click->expansion-panel#toggle', target: "##{song.dom_id(:collapse)}" })
   .expansion-panel-toggler.collapsed.position-relative
     .media-body
       .row.collapsed-show.align-items-center
@@ -9,10 +9,7 @@
         .col-8
           = song.formatted_tag_list
           - song.scores.each do |score|
-            .badge.badge-pill.badge-light.border.py-1.mr-2
-              = link_to(score.attachment.url, class: 'text-dark small text-truncate', target: '_blank', data: { toggle: 'no-collapse' }) do
-                small= material_icon('attach_file')
-                = score.attachment.identifier
+            = score.attachment_badge
 
       .row.collapsed-hide
         .col-11

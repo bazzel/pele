@@ -57,6 +57,8 @@ ActiveRecord::Schema.define(version: 2020_06_07_145121) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "attachment"
     t.boolean "tablature_notation"
+    t.boolean "standard_notation"
+    t.boolean "chord_notation"
     t.index ["song_id"], name: "index_scores_on_song_id"
   end
 

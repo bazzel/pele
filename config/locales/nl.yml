@@ -150,6 +150,12 @@ nl:
     required:
       text: "verplicht"
       mark: "*"
+    labels:
+      song:
+        scores:
+          tablature_notation: "tablature"
+          standard_notation: "standard"
+          chord_notation: "chords"
     placeholders:
       group:
         name: "Groepsnaam toevoegen"
@@ -160,6 +166,10 @@ nl:
         title: "Titel toevoegen"
         songwriter_title: "Artiest of componist toevoegen"
         tag_list: "Labels toevoegen"
+        scores:
+          tablature_notation: "tabulatuur"
+          standard_notation: "standaard notatie"
+          chord_notation: "akkoorden"
       user:
         name: "Naam toevoegen"
         email: "E-mailadres toevoegen"
