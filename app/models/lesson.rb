@@ -9,6 +9,11 @@ class Lesson < ApplicationRecord
   ransack_alias :title, :song_title
   ransack_alias :title_or_songwriter_name, :song_title_or_song_songwriter_name
   ransack_alias :tags_id, :song_tags_id
+  ransack_alias :scores_tablature_notation_true,
+                :song_scores_tablature_notation_true
+  ransack_alias :scores_standard_notation_true,
+                :song_scores_standard_notation_true
+  ransack_alias :scores_chord_notation_true, :song_scores_chord_notation_true
 
   scope :pinned_by, ->(user) { merge(user.pins) }
 

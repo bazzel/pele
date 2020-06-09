@@ -1,16 +1,27 @@
 .search-form.card.mb-5
   .card-body.pb-0
     = search_form_for q, url: url_for, remote: true, html: { autocomplete: :off, data: { controller: 'search', target: 'search.form' } } do |f|
-      .d-flex
-        .form-group.flex-grow-1
+      .d-flex.justify-content-end.align-items-center.form-group
+        .flex-grow-1
           .textfield-box
             = f.search_field :title_or_songwriter_name_cont, autofocus: true, placeholder: t('.query'), class: 'form-control', data: { target: 'search.query', action: 'input->search#perform' }
 
-        .form-group.pl-3.align-self-center.d-flex.justify-content-end
+        .pl-3
           .custom-control.custom-switch.pl-5
             = check_box_tag :pinned, true, params[:pinned], { class: 'custom-control-input', data: { target: 'search.isPinned', action: 'change->search#perform' } }
             span.custom-control-track
             = label_tag :pinned, '', class: 'custom-control-label claim-toggle'
 
-      .d-flex.justify-content-end
-        .form-group= render(Search::Filter::TagsComponent.new(q: @q, builder: f))
+      .d-flex.justify-content-end.align-items-center.form-group
+        .btn-group(data-toggle="buttons" role="group" data={ action: 'click->search#perform' })
+          = tag.label class: 'btn btn-outline btn-sm active'
+            = f.check_box :scores_tablature_notation_true, include_hidden: false
+            span.pele-icons tablature
+          = tag.label class: 'btn btn-outline btn-sm active'
+            = f.check_box :scores_standard_notation_true, include_hidden: false
+            span.pele-icons standard
+          = tag.label class: 'btn btn-outline btn-sm active'
+            = f.check_box :scores_chord_notation_true, include_hidden: false
+            span.pele-icons chords
+
+        = render(Search::Filter::TagsComponent.new(q: @q, builder: f))

@@ -53,3 +53,15 @@ Then(
     tags.each { |tag| expect(page).to have_content(tag) }
   end
 end
+
+Then('I expect to see the song(s) {string}') do |songs|
+  song_names = songs.split(/\s*,\s*/)
+
+  song_names.each { |song_name| expect(page).to have_content(song_name) }
+end
+
+Then('I expect not to see the song(s) {string}') do |songs|
+  song_names = songs.split(/\s*,\s*/)
+
+  song_names.each { |song_name| expect(page).not_to have_content(song_name) }
+end
