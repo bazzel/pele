@@ -62,7 +62,7 @@ nl:
       chord_notation: *chord_notation
 
   dashboard:
-    index:
+    results:
       pins: "Vastgezette liedjes"
   search:
     filter:
