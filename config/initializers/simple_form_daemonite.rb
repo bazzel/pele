@@ -107,14 +107,11 @@ SimpleForm.setup do |config|
 
   config.wrappers(
     :toggle_buttons_checkbox,
-    tag: :label, class: 'btn btn-outline btn-sm'
+    tag: :div, class: 'btn btn-outline btn-sm'
   ) do |b|
     b.use :html5
-    # b.use :placeholder
     b.use :input
-    b.wrapper tag: :i, class: 'pele-icons' do |ba|
-      ba.use :label_text
-    end
+    b.use :label, class: 'pele-icons'
   end
 
   # The default wrapper to be used by the FormBuilder.
