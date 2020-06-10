@@ -28,11 +28,11 @@
 
   .actions {
     @extend .d-flex;
-    @extend .align-items-start;
+    @extend .align-items-center;
     @extend .position-absolute;
     bottom: 0;
     right: 0;
-    top: $expansion-panel-padding-y;
+    top: 0;
     visibility: hidden;
   }
 

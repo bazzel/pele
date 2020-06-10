@@ -9,13 +9,12 @@
         .col-8
           = lesson.song.formatted_tag_list
           span.text-black-50= lesson.song.songwriter&.name
-        .col.offset-3
-          .mt-2= lesson.song.score_badges
+          span.ml-2= lesson.song.score_badges
 
       .row.collapsed-hide
         .col-11
           h3.h4.mb-0.d-inline-block= lesson.song.title
-          .ml-2.d-inline-block= lesson.song.formatted_tag_list
+          span.ml-2= lesson.song.formatted_tag_list
           .d-block.text-black-50= lesson.song.songwriter&.name
 
     .actions.mr-1.pl-3(data={ toggle: 'no-collapse' })

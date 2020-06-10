@@ -9,13 +9,12 @@
         .col-8
           = song.formatted_tag_list
           span.text-black-50= song.songwriter&.name
-        .col.offset-3
-          .mt-2= song.score_badges
+          span.ml-2= song.score_badges
 
       .row.collapsed-hide
         .col-11
           h3.h4.mb-0.d-inline-block= song.title
-          .ml-2.d-inline-block= song.formatted_tag_list
+          span.ml-2= song.formatted_tag_list
           .d-block.text-black-50= song.songwriter&.name
 
     .actions.mr-1.pl-3(data={ toggle: 'no-collapse' })
