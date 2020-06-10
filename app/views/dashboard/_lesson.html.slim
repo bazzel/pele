@@ -14,9 +14,13 @@
 
       .row.collapsed-hide
         .col-11
+          h3.h4.mb-0.d-inline-block= lesson.song.title
+          .ml-2.d-inline-block= lesson.song.formatted_tag_list
+
     .actions.mr-1.pl-3(data={ toggle: 'no-collapse' })
       = lesson.link_to_pin_or_unpin
       / = group.link_to_destroy
       / = group.link_to_edit
   .collapse(id=lesson.dom_id(:collapse) class=('show' if local_assigns[:show]) data={ parent: "##{parent}" })
     .expansion-panel-body
+      = lesson.song&.songwriter.name
