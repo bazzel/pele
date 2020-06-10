@@ -8,8 +8,7 @@
             = song.title_and_songwriter
         .col-8
           = song.formatted_tag_list
-          - song.scores.each do |score|
-            = score.attachment_badge
+          = song.score_badges
 
       .row.collapsed-hide
         .col-11

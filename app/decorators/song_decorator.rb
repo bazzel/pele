@@ -64,7 +64,24 @@ class SongDecorator < ApplicationDecorator
     )
   end
 
+  def score_badges
+    return if scores.none?
+
+    badges =
+      scores.first(3).each_with_index.map do |score, i|
+        i < 2 ? score.attachment_badge : show_more_scores_badge
+      end
+
+    h.safe_join(badges)
+  end
+
   private
+
+  def show_more_scores_badge
+    h.content_tag(:div, class: 'badge badge-pill badge-light border py-1') do
+      h.content_tag(:span, "+#{scores.size - 2}", class: 'text-dark small')
+    end
+  end
 
   def link_to_pin
     return unless pin?

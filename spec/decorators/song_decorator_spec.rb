@@ -50,4 +50,29 @@ RSpec.describe SongDecorator do
       it { is_expected.to have_css('.badge', text: 'ipsum') }
     end
   end
+
+  describe '#score_badges' do
+    subject(:score_badges) { decorator.score_badges }
+
+    let(:song) { create(:song, scores_count: scores_count) }
+
+    describe 'without scores' do
+      let(:scores_count) { 0 }
+
+      it { is_expected.to be_nil }
+    end
+
+    describe 'with less than 3' do
+      let(:scores_count) { 2 }
+
+      it { is_expected.to have_css('.badge', count: 2) }
+    end
+
+    describe 'with 3 or more' do
+      let(:scores_count) { 5 }
+
+      it { is_expected.to have_css('.badge', count: 3) }
+      it { is_expected.to have_css('.badge', text: '+3') }
+    end
+  end
 end

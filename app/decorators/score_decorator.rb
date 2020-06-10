@@ -31,8 +31,19 @@ class ScoreDecorator < ApplicationDecorator
       data: { toggle: 'no-collapse' }
     ) do
       h.concat notation_icons
-      h.concat attachment.identifier
+      h.concat formatted_filename
     end
+  end
+
+  def formatted_filename
+    filename = attachment.identifier
+    extname = File.extname(filename)
+    truncated_basename = File.basename(filename, extname).truncate(8)
+    h.content_tag(
+      :span,
+      "#{truncated_basename}#{extname}",
+      h.tooltipify(filename)
+    )
   end
 
   def notation_icons
