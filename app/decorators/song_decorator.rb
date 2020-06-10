@@ -99,7 +99,7 @@ class SongDecorator < ApplicationDecorator
     return unless unpin?
 
     body = h.material_icon('push_pin')
-    pin = pins.find_by(user: h.current_user)
+    pin = pins.find { |p| p.user == h.current_user }
     url = h.pin_path(pin)
 
     h.link_to body, url, link_to_unpin_options
@@ -114,7 +114,8 @@ class SongDecorator < ApplicationDecorator
   end
 
   def pin_policy
-    pin = pins.find_by(user: h.current_user)
+    pin = pins.find { |p| p.user == h.current_user }
+
     PinPolicy.new(h.current_user, pin)
   end
 
