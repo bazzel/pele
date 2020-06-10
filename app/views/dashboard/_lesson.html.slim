@@ -8,7 +8,7 @@
             .text-truncate= lesson.song.title
         .col-8
           = lesson.song.formatted_tag_list
-          span.text-black-50= lesson.song&.songwriter.name
+          span.text-black-50= lesson.song.songwriter&.name
         .col.offset-3
           .mt-2= lesson.song.score_badges
 
@@ -16,6 +16,7 @@
         .col-11
           h3.h4.mb-0.d-inline-block= lesson.song.title
           .ml-2.d-inline-block= lesson.song.formatted_tag_list
+          .d-block.text-black-50= lesson.song.songwriter&.name
 
     .actions.mr-1.pl-3(data={ toggle: 'no-collapse' })
       = lesson.link_to_pin_or_unpin
@@ -23,4 +24,39 @@
       / = group.link_to_edit
   .collapse(id=lesson.dom_id(:collapse) class=('show' if local_assigns[:show]) data={ parent: "##{parent}" })
     .expansion-panel-body
-      = lesson.song&.songwriter.name
+        - lesson.song.scores.each do |score|
+          .row
+            .col.offset-3
+              .mb-3
+                .mb-2
+                  => score.attachment.identifier
+                  small.text-black-50
+                    | (
+                    = number_to_human_size score.attachment.file.size
+                    |)
+
+                .d-block.mb-2
+                  .d-inline-block.mr-3
+                    = link_to(score.attachment.url, class: 'btn btn-sm btn-outline-dark', target: '_blank', rel: 'noopener', data: { toggle: 'no-collapse' }) do
+                      => material_icon('open_in_new')
+                      | Openen
+
+                  .d-inline-block.mr-3
+                    = link_to(score.attachment.url, class: 'btn btn-sm btn-outline-dark', download: score.attachment.identifier, data: { toggle: 'no-collapse' }) do
+                      => material_icon('cloud_download')
+                      | Downloaden
+
+                .d-block.small.text-black-50
+                  - if score.tablature_notation?
+                    .d-inline-block.mr-3
+                      => score.tablature_notation_icon
+                      = Score.human_attribute_name('tablature_notation')
+                  - if score.standard_notation?
+                    .d-inline-block.mr-3
+                      => score.standard_notation_icon
+                      = Score.human_attribute_name('standard_notation')
+                  - if score.chord_notation?
+                    .d-inline-block.mr-3
+                      => score.chord_notation_icon
+                      = Score.human_attribute_name('chord_notation')
+                hr
