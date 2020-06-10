@@ -7,7 +7,7 @@ export default class extends Controller {
 
   connect() {
     this.moveCursorToEnd(this.queryTarget);
-    this.perform = _.debounce(this._perform, 150).bind(this);
+    this.perform = _.debounce(this._perform, 500).bind(this);
   }
 
   _perform(event) {
