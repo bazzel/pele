@@ -5,15 +5,16 @@
         - # Keep 1 column for action buttons
         .col-3
           .d-flex
-            = lesson.song.title_and_songwriter
-
+            .text-truncate= lesson.song.title
         .col-8
           = lesson.song.formatted_tag_list
-          = lesson.song.score_badges
+          span.text-black-50= lesson.song&.songwriter.name
+        .col.offset-3
+          .mt-2= lesson.song.score_badges
 
       .row.collapsed-hide
         .col-11
-    .actions.d-flex.align-items-center.mr-1.pl-3.position-absolute(data={ toggle: 'no-collapse' })
+    .actions.mr-1.pl-3(data={ toggle: 'no-collapse' })
       = lesson.link_to_pin_or_unpin
       / = group.link_to_destroy
       / = group.link_to_edit

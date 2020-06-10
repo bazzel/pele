@@ -27,9 +27,12 @@
   }
 
   .actions {
+    @extend .d-flex;
+    @extend .align-items-start;
+    @extend .position-absolute;
     bottom: 0;
     right: 0;
-    top: 0;
+    top: $expansion-panel-padding-y;
     visibility: hidden;
   }
 
