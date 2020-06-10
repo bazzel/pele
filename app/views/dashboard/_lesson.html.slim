@@ -9,8 +9,7 @@
 
         .col-8
           = lesson.song.formatted_tag_list
-          - lesson.song.scores.each do |score|
-            = score.attachment_badge
+          = lesson.song.score_badges
 
       .row.collapsed-hide
         .col-11
