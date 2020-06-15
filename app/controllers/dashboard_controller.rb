@@ -18,21 +18,18 @@ class DashboardController < ApplicationController
 
   def lessons
     lessons =
-      @q.result.left_joins(:pins).includes(
+      @q.result.left_joins(:pins, :group).includes(
         :group,
-        :pins,
+        [pins: :user],
         song: %i[scores songwriter taggings]
-      )
+      ).merge(Group.order(created_at: :desc)).order(created_at: :desc)
     params[:pinned] ? lessons.pinned_by(current_user) : lessons
   end
 
   def set_songs
     @songs =
-      Song.ransack(params[:q]).result.kept.includes(
-        :scores,
-        :songwriter,
-        :taggings,
-        :pins
-      ).order(:title).pinned_by(current_user).decorate
+      Song.ransack(params[:q]).result.kept.includes(pins: %i[user]).order(
+        :title
+      ).pinned_by(current_user).decorate
   end
 end
