@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
 body {
+  min-height: 100vh;
   padding: {
     bottom: $body-padding-y;
     top: $body-padding-y;
