@@ -32,6 +32,7 @@ gem 'carrierwave', '~> 2.0'
 gem 'discard', '~> 1.2'
 gem 'draper'
 gem "fog-aws"
+gem 'kaminari'
 gem 'mini_magick'
 gem "pundit"
 gem 'ransack' # Object-based searching.

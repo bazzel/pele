@@ -1,4 +1,3 @@
-var el = document.querySelector(".results");
+var el = document.querySelector('.load-more');
 
-el.outerHTML =
-  '<%= j  render(partial: "results", locals: { songs: @songs, lessons_by_group: @lessons_by_group }) %>';
+el.outerHTML = '<%= j render(partial: 'songs', object: @songs, locals: { parent: 'songs' }) %>'

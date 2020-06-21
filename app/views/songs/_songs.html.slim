@@ -1,1 +1,3 @@
 = render(partial: 'songs/song', collection: songs, locals: { parent: parent })
+
+= show_more_link_to songs, 'More songs', remote: true, class: 'list-group-item d-flex justify-content-start align-items-center load-more'

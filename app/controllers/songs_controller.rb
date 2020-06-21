@@ -8,13 +8,7 @@ class SongsController < ApplicationController
 
   def index
     @q = Song.ransack(params[:q])
-    @songs =
-      @q.result.kept.includes(:scores, :songwriter, :taggings, :pins).order(
-        :title
-      )
-
-    @songs = @songs.pinned_by(current_user) if params[:pinned]
-    @songs = @songs.decorate
+    set_songs
   end
 
   def new
@@ -63,6 +57,16 @@ class SongsController < ApplicationController
 
   def set_song
     @song = authorize Song.find(params[:id]).decorate
+  end
+
+  def set_songs
+    @songs =
+      @q.result.kept.includes(:scores, :songwriter, :taggings, :pins).order(
+        :title
+      ).page(params[:page])
+
+    @songs = @songs.pinned_by(current_user) if params[:pinned]
+    @songs = @songs.decorate
   end
 
   def song_params

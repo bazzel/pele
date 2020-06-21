@@ -1,4 +1,4 @@
 - content_for(:floating_action_button) { SongDecorator.floating_action_button }
 = render partial: 'search', locals: { q: @q }
 
-= render partial: 'results', locals: { songs: @songs }
+= render(partial: 'songs', object: @songs, layout: 'songs_layout', locals: { parent: 'songs' })

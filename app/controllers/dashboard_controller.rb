@@ -30,6 +30,6 @@ class DashboardController < ApplicationController
     @songs =
       Song.ransack(params[:q]).result.kept.includes(pins: %i[user]).order(
         :title
-      ).pinned_by(current_user).decorate
+      ).page(params[:page]).pinned_by(current_user).decorate
   end
 end
