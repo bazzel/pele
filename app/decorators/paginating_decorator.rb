@@ -13,5 +13,6 @@ class PaginatingDecorator < Draper::CollectionDecorator
            :starting_at,
            :page,
            :next_page,
+           :first_page?,
            :build
 end

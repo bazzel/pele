@@ -1,3 +1,9 @@
-var el = document.querySelector('.load-more');
+var htmlString = '<%= j render(partial: 'songs', object: @songs, locals: { parent: 'songs' }) %>';
 
-el.outerHTML = '<%= j render(partial: 'songs', object: @songs, locals: { parent: 'songs' }) %>'
+<%- if @songs.first_page? %>
+  var el = document.querySelector('.songs');
+  el.innerHTML = htmlString;
+<%- else %>
+  var el = document.querySelector('.load-more');
+  el.outerHTML = htmlString;
+<%- end %>
