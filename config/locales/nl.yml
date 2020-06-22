@@ -105,6 +105,8 @@ nl:
       notice: "Lied '%{title}' is hersteld."
     form:
       add_score: "Bladmuziek toevoegen"
+    songs:
+      load_more: "Meer liedjes laden"
   users:
     new:
       title: "Een nieuwe %{subject} toevoegen"
