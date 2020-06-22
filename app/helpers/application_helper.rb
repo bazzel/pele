@@ -16,7 +16,7 @@ module ApplicationHelper
     icon = material_icon('keyboard_arrow_down')
     name = safe_join([icon, name], ' ')
 
-    options.merge!({ data: { disable_with: disable_with } })
+    options.deep_merge!({ data: { disable_with: disable_with } })
 
     link_to_next_page scope, name, options
   end

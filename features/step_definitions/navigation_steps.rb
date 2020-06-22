@@ -45,6 +45,14 @@ When('I choose {string} from the navigation drawer') do |menu|
   end
 end
 
+When('I scroll to the bottom of the page') do
+  script = <<-JS
+  window.scrollTo(0, document.body.scrollHeight);
+  JS
+
+  page.execute_script(script)
+end
+
 Given('I open the navigation drawer') do
   find('nav button.navbar-toggler').click
 end
